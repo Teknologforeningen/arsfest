@@ -1,4 +1,9 @@
 {
+   "type": "postgres",
+   "host": "localhost",
+   "username":  "postgres",
+   "password": "123456789",
+   "database": "fest",
    "synchronize": true,
    "logging": false,
    "entities": [
