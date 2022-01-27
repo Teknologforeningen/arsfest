@@ -10,7 +10,7 @@ const Nav = () => {
             </a>
             <ul class="nav-ul">
                 <li class="nav-li">
-                <a href="./registration">Deltagaranmälan</a>
+                <a href="./anmalan">Deltagaranmälan</a>
                 </li>
                 <li class="nav-li">
                 <a href="./">Basinfo</a>

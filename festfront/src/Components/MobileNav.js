@@ -18,7 +18,7 @@ const MobileNav = () => {
             <img id="navMenuClose" src="./assets/close.svg" class="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
             <ul class="nav-ul">
                 <li class="nav-li">
-                <a href="./registration">Deltagaranmälan</a>
+                <a href="./anmalan">Deltagaranmälan</a>
                 </li>
                 <li class="nav-li">
                 <a href="./">Basinfo</a>
