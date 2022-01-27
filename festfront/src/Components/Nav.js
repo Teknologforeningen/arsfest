@@ -1,7 +1,7 @@
 const Nav = () => {
     return (
         <nav className="nav">
-            <a href="./">
+            <a className="nav-link-header" href="./">
                 <h1 className="nav-header">
                 TF
                 <br />
