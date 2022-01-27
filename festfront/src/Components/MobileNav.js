@@ -6,15 +6,16 @@ const MobileNav = () => {
     return (
         <>
         <div class="mobile-header">
-            <img id="navMenuIcon" src="./assets/menu.svg" class="menu"></img>
+            <img id="navMenuIcon" src="./assets/menu.svg" class="menu" onClick={() => setShowMobile(!showMobile)}></img>
             <a href="./index.html">
                 <h1 class="mobile-nav-header">
                 TF 150
                 </h1>
             </a>
         </div>
+        {showMobile &&
         <div id="mobileNav" class="mobile-nav-container">
-            <img id="navMenuClose" src="./assets/close.svg" class="menu-close"></img>
+            <img id="navMenuClose" src="./assets/close.svg" class="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
             <ul class="nav-ul">
                 <li class="nav-li">
                 <a href="./registration.html">Deltagaranmälan</a>
@@ -39,6 +40,7 @@ const MobileNav = () => {
                 </li>
             </ul>
         </div>
+        }
         </>
     )
 }
