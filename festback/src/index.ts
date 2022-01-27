@@ -7,7 +7,7 @@ import { initRoutes } from "./routes";
 
 createConnection().then(async connection => {
 
-    let app = Express();
+    const app = Express();
 
     app.use(BodyParser.json());
     // app.use(cors())
@@ -16,6 +16,14 @@ createConnection().then(async connection => {
 
     app.listen(5000);
     console.log("Server started on 5000");
+    const path = require('path');
+
+    app.use(Express.static(path.resolve(__dirname, '../../festfront/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(
+            __dirname, '../../festfront/build', 'index.html'
+        )); 
+    });
 
 }).catch(error => console.log(error));
 
