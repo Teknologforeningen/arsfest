@@ -1,31 +1,15 @@
 import {Request, Response, Application} from 'express';
-import { createParticipant, IParticipant } from '../entity/Participant';
+import { close } from 'inspector';
+import { SimpleConsoleLogger } from 'typeorm';
+import { createParticipant, IParticipant, getParticipants } from '../entity/Participant';
 
 export const initRoutes = (app: Application) => {
 	app.get('/participants', async (req: Request, res: Response) => {
         try {
-            // const participantObj = req.body as IParticipant;
-
-            // const participantObj: IParticipant = {
-            //     namn: "kuk",
-            //     email: "kuk@gmail.com",
-            //     pris: 1000,
-            //     avec: "test avec",
-            //     sittplats: "Min kompis",
-            //     sillis: true,
-            //     solenn: true,
-            //     representerar: "tf",
-            //     alkohol: true,
-            //     meny: "kuk kött",
-            //     specialdieter: "Nej",
-            //     buss: true,
-            //     kommentarer: "Kakka"
-            // }
-
-            // await createParticipant(participantObj);
+            const participants = await getParticipants();
+            res.send(participants);       
             console.log("Wtf");
-            res.sendStatus(400);
-        
+            console.log(participants)
         } catch (e) {
             console.log(e);
             res.sendStatus(400);

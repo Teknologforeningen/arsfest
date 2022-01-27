@@ -2,7 +2,7 @@ POST http://localhost:5000/participant HTTP/1.1
 content-type: application/json
 
 {
-    "namn": "kuk 2",
+    "namn": "kuk 5",
     "email": "kuk@gmail.com",
     "pris": 1000,
     "avec": "test avec",
@@ -14,5 +14,9 @@ content-type: application/json
     "meny": "kuk kött",
     "specialdieter": "Nej",
     "buss": true,
-    "kommentarer": "Kakka"
+    "kommentarer": "Kakka",
+    "visible": true
 }
+###
+GET http://localhost:5000/participants HTTP/1.1
+content-type: application/json

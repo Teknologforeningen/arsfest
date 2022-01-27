@@ -13,6 +13,7 @@ export interface IParticipant {
     meny: string;
     specialdieter: string;
     buss: boolean;
+    visible: boolean;
     kommentarer: string;
 }
 
@@ -62,6 +63,9 @@ export class Participant {
     kommentar: string;
 
     @Column()
+    visible: boolean;
+
+    @Column()
     created: Date;
 }
 
@@ -81,7 +85,16 @@ export const createParticipant = async (participant: IParticipant) => {
     newParticipant.specialdieter = participant.specialdieter;
     newParticipant.buss = participant.buss;
     newParticipant.kommentar = participant.kommentarer;
+    newParticipant.visible = participant.visible;
     newParticipant.created = new Date;
 
     await repo.save(newParticipant);
+}
+
+export const getParticipants = async () => {
+    const repo = getRepository(Participant);
+    const participants = await repo.find();
+    return participants
+        .filter(participant => participant.visible)
+        .map(participant => participant.namn);
 }
