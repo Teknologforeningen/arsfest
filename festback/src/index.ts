@@ -1,29 +1,37 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
-import * as Express from 'express';
+import express from 'express';
 import * as BodyParser from 'body-parser';
+import cors from 'cors';
 import { initRoutes } from "./routes";
 //import { cors } from 'cors';
 
 createConnection().then(async connection => {
 
-    const app = Express();
+    try {
+        const app = express();
 
-    app.use(BodyParser.json());
-    // app.use(cors())
+        app.use(BodyParser.json());
+        app.use(cors());
 
-    initRoutes(app);
+        // app.use(cors())
 
-    app.listen(5000);
-    console.log("Server started on 5000");
-    const path = require('path');
+        initRoutes(app);
 
-    app.use(Express.static(path.resolve(__dirname, '../../festfront/build')));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(
-            __dirname, '../../festfront/build', 'index.html'
-        )); 
-    });
+        const path = require('path');
+
+        app.use(express.static(path.resolve(__dirname, '../../festfront/build')));
+        app.get('*', (req, res) => {
+            res.sendFile(path.resolve(
+                __dirname, '../../festfront/build', 'index.html'
+            )); 
+        });
+
+        app.listen(5000);
+        console.log("Server started on 5000");
+    } catch (e) {
+        console.log(e);
+    }
 
 }).catch(error => console.log(error));
 
