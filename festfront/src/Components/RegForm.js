@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const RegForm = () => {
@@ -16,8 +17,10 @@ const RegForm = () => {
         meny: "Fisk",
         specialdieter: "",
         buss: false,
-        kommentarer: ""
+        kommentarer: "",
+        visible: false
     });
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setFormData({
@@ -37,9 +40,15 @@ const RegForm = () => {
         const dataToSend = formData;
         dataToSend.pris = parseInt(dataToSend.pris);
         console.log(dataToSend);
-        const res = await axios.post("http://localhost:5000/participant", dataToSend);
-        
-        console.log(res);
+        axios.post("http://localhost:5000/participant", dataToSend)
+        .then((response) => {
+            console.log(response);
+            navigate("../anmalansuccee", { replace: true });
+        })
+        .catch((error) => {
+            console.log(error);
+            navigate("../anmalanmisslyckad", { replace: true });
+        })
     }
 
     return (
@@ -137,9 +146,19 @@ const RegForm = () => {
                 <textarea rows={4} type="specialdieter" className="form-control" id="kommentarer"
                     name="kommentarer" value={formData.kommentarer} onChange={handleChange} />
             </div>
+            {/* Visible */}
+            <div className="form-check mb-3">
+                <input className="form-check-input" type="checkbox" defaultChecked={formData.visible} value={formData.visible}
+                    id="visible" name="visible" onChange={handleCheckChange} />
+                <label className="form-check-label" htmlFor="visible">
+                    Mitt namn får synas i deltagarlistan
+                </label>
+            </div>
+            {/* Send form button */}
             <div className="form-btn-container">
                 <button type="button" className="btn btn-primary" onClick={handleSend}>Skicka</button>
             </div>
+            
         </div>
     )
 }

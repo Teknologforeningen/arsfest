@@ -8,7 +8,6 @@ export const initRoutes = (app: Application) => {
         try {
             const participants = await getParticipants();
             res.send(participants);       
-            console.log("Wtf");
             console.log(participants)
         } catch (e) {
             console.log(e);
@@ -19,7 +18,7 @@ export const initRoutes = (app: Application) => {
         try {
             const regOpens = new Date('27 January 2022 20:00')
             const currentTime = new Date;
-            if (currentTime < regOpens) {
+            if (true) {
                 res.sendStatus(400);
                 return;
             } 

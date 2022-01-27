@@ -13,6 +13,8 @@ import Coronainfo from "./Views/Coronainfo";
 import Fundraising from "./Views/Fundraising";
 import Fotoinfo from "./Views/Fotoinfo";
 import Anmalan from "./Views/Anmalan"
+import AnmalanSuccee from "./Views/AnmalanSuccee";
+import AnmalanMisslyckad from "./Views/AnmalanMisslyckad";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="/fundraising" element={<Fundraising />}/>
           <Route path="/fotoinfo" element={<Fotoinfo />}/>
           <Route path="/anmalan" element={<Anmalan />}/>
+          <Route path="/anmalansuccee" element={<AnmalanSuccee />}/>
+          <Route path="/anmalanmisslyckad" element={<AnmalanMisslyckad />}/>
           {//<Route path="/anmalan" component={deltagaranmalan}/>
           //<Route path="/fotoinfo" component={fotoinfo}/>
           //<Route path="/coronainfo" component={coronainfo}/>
