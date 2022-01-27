@@ -1,21 +1,22 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import {User} from "./entity/User";
+import * as Express from 'express';
+import * as BodyParser from 'body-parser';
+import { initRoutes } from "./routes";
+import { cors } from 'cors';
 
 createConnection().then(async connection => {
 
-    console.log("Inserting a new user into the database...");
-    const user = new User();
-    user.firstName = "Timber";
-    user.lastName = "Saw";
-    user.age = 25;
-    await connection.manager.save(user);
-    console.log("Saved a new user with id: " + user.id);
+    let app = Express();
 
-    console.log("Loading users from the database...");
-    const users = await connection.manager.find(User);
-    console.log("Loaded users: ", users);
+    app.use(BodyParser.json());
+    app.use(cors())
 
-    console.log("Here you can setup and run express/koa/any other framework.");
+    initRoutes(app);
+
+    app.listen(5000);
+    console.log("Server started on 5000");
 
 }).catch(error => console.log(error));
+
