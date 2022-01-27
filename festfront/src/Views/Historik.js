@@ -55,10 +55,6 @@ const Historik = () => {
                 </div>
             </div>
         </div>
-        <img src="./assets/top_left.svg" class="img-top-left"></img>
-        <img src="./assets/bot_left.svg" class="img-bottom-left"></img>
-        <img src="./assets/top_right.svg" class="img-top-right"></img>
-        <img src="./assets/bot_right.svg" class="img-bottom-right"></img>
         </>
     )
 }

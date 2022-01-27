@@ -28,10 +28,10 @@ const Home = () => {
                     </p>
                         
                     <p class="page-content-text">
-                        Notera att anmälan går att avboka tills 14.2, varefter den blir bindande. För att kunna njuta av en så säker fest som möjligt kommer rådande restriktioner beaktas. Vänligen läs igenom Coronainfon för mer information.
+                        Notera att anmälan går att avboka tills 14.2, varefter den blir bindande. För att kunna njuta av en så säker fest som möjligt kommer rådande restriktioner beaktas. Vänligen läs igenom <a href="./coronainfo">Coronainfon</a> för mer information.
                     </p>
                     <p class="content-list">
-                        Priser
+                        <b>Priser</b><br/><br/>
                     </p>
                     <p class="content-list">
                         Supékort, studerande            100 €
@@ -52,7 +52,7 @@ const Home = () => {
                     </p>
             
                     <p class="content-list">
-                        <b>Tidtabell</b><br/>
+                        <b>Tidtabell</b><br/><br/>
                     </p>
             
                     <p class="content-list">
@@ -75,7 +75,7 @@ const Home = () => {
                     </p>
                         
                     <p class="page-content-text">
-                        Vid frågor, kontakta årsfestmarskalkerna på arsfest@tf.fi
+                        Vid frågor, kontakta årsfestmarskalkerna på <a href="mailto: arsfest@tf.fi">arsfest@tf.fi</a>
                     </p>
                 </div>
             </div>
