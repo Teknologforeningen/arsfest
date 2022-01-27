@@ -7,7 +7,7 @@ const MobileNav = () => {
         <>
         <div class="mobile-header">
             <img id="navMenuIcon" src="./assets/menu.svg" class="menu" onClick={() => setShowMobile(!showMobile)}></img>
-            <a href="./index.html">
+            <a href="./">
                 <h1 class="mobile-nav-header">
                 TF 150
                 </h1>
@@ -18,25 +18,25 @@ const MobileNav = () => {
             <img id="navMenuClose" src="./assets/close.svg" class="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
             <ul class="nav-ul">
                 <li class="nav-li">
-                <a href="./registration.html">Deltagaranmälan</a>
+                <a href="./registration">Deltagaranmälan</a>
                 </li>
                 <li class="nav-li">
-                <a href="./index.html">Basinfo</a>
+                <a href="./">Basinfo</a>
                 </li>
                 <li class="nav-li">
-                <a href="./photoinfo.html">Fotoinfo</a>
+                <a href="./fotoinfo">Fotoinfo</a>
                 </li>
                 <li class="nav-li">
-                <a href="./coronainfo.html">Coronainfo/FAQ</a>
+                <a href="./coronainfo">Coronainfo/FAQ</a>
                 </li>
                 <li class="nav-li">
-                <a href="./fundraising.html">Fundraising</a>
+                <a href="./fundraising">Fundraising</a>
                 </li>
                 <li class="nav-li">
-                <a href="./historik.html">Historik</a>
+                <a href="./historik">Historik</a>
                 </li>
                 <li class="nav-li">
-                <a href="./vettoetikett.html">Vett och Etikett</a>
+                <a href="./vettoetikett">Vett och Etikett</a>
                 </li>
             </ul>
         </div>
