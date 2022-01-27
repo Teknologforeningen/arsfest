@@ -60,6 +60,9 @@ export class Participant {
 
     @Column()
     kommentar: string;
+
+    @Column()
+    created: Date;
 }
 
 export const createParticipant = async (participant: IParticipant) => {
@@ -78,6 +81,7 @@ export const createParticipant = async (participant: IParticipant) => {
     newParticipant.specialdieter = participant.specialdieter;
     newParticipant.buss = participant.buss;
     newParticipant.kommentar = participant.kommentarer;
+    newParticipant.created = new Date;
 
     await repo.save(newParticipant);
 }
