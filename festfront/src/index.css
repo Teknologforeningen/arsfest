@@ -152,6 +152,11 @@ a {
   display: none;
 }
 
+.form-container {
+  width: 100%;
+  margin: 0 1rem;
+}
+
 @media screen and (min-width: 1050px) {
   .mobile-nav-container {
     display: none !important;

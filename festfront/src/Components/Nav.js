@@ -1,33 +1,33 @@
 const Nav = () => {
     return (
-        <nav class="nav">
+        <nav className="nav">
             <a href="./">
-                <h1 class="nav-header">
+                <h1 className="nav-header">
                 TF
                 <br />
                 150
                 </h1>
             </a>
-            <ul class="nav-ul">
-                <li class="nav-li">
+            <ul className="nav-ul">
+                <li className="nav-li">
                 <a href="./anmalan">Deltagaranmälan</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./">Basinfo</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./fotoinfo">Fotoinfo</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./coronainfo">Coronainfo/FAQ</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./fundraising">Fundraising</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./historik">Historik</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./vettoetikett">Vett och Etikett</a>
                 </li>
             </ul>

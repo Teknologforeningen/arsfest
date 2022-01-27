@@ -5,37 +5,37 @@ const MobileNav = () => {
 
     return (
         <>
-        <div class="mobile-header">
-            <img id="navMenuIcon" src="./assets/menu.svg" class="menu" onClick={() => setShowMobile(!showMobile)}></img>
+        <div className="mobile-header">
+            <img id="navMenuIcon" src="./assets/menu.svg" className="menu" onClick={() => setShowMobile(!showMobile)}></img>
             <a href="./">
-                <h1 class="mobile-nav-header">
+                <h1 className="mobile-nav-header">
                 TF 150
                 </h1>
             </a>
         </div>
         {showMobile &&
-        <div id="mobileNav" class="mobile-nav-container">
-            <img id="navMenuClose" src="./assets/close.svg" class="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
-            <ul class="nav-ul">
-                <li class="nav-li">
+        <div id="mobileNav" className="mobile-nav-container">
+            <img id="navMenuClose" src="./assets/close.svg" className="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
+            <ul className="nav-ul">
+                <li className="nav-li">
                 <a href="./anmalan">Deltagaranmälan</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./">Basinfo</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./fotoinfo">Fotoinfo</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./coronainfo">Coronainfo/FAQ</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./fundraising">Fundraising</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./historik">Historik</a>
                 </li>
-                <li class="nav-li">
+                <li className="nav-li">
                 <a href="./vettoetikett">Vett och Etikett</a>
                 </li>
             </ul>
