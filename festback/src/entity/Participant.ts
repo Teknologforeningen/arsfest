@@ -95,6 +95,6 @@ export const getParticipants = async () => {
     const repo = getRepository(Participant);
     const participants = await repo.find();
     return participants
-        .filter(participant => participant.visible)
-        .map(participant => participant.namn);
+        .sort((a, b) => a.created.getTime() - b.created.getTime())
+        .map(participant => participant.visible ? participant.namn : 'Anonym');
 }
