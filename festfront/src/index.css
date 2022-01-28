@@ -127,6 +127,7 @@ div::-webkit-scrollbar-thumb
   font-size: 64px;
   margin: 0;
   text-align: center;
+  font-weight: bolder;
 }
 
 .nav {
@@ -145,7 +146,7 @@ div::-webkit-scrollbar-thumb
 a {
   color: #ffffff !important;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .menu {

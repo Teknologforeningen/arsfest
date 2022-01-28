@@ -9,9 +9,9 @@ const Nav = () => {
                 </h1>
             </a>
             <ul className="nav-ul">
-                <li className="nav-li">
+                {/*<li className="nav-li">
                 <a href="./">Basinfo</a>
-                </li>
+                </li>*/}
                 <li className="nav-li">
                 <a href="./anmalan">Deltagaranmälan</a>
                 </li>

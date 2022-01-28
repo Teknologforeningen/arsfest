@@ -111,8 +111,20 @@ const Vettoetikett = () => {
             </p>
             <h4><b>Årsfestbankett</b></h4>
             <p className="page-content-list">
-                Middagen eller Banketten inleds med det högtidliga inbärandet av fanorna. Då fanbärarna marscherar in står deltagarna upp och 
-                följer fanorna med fron <br/><br/>
+            Middagen eller Banketten inleds med det högtidliga inbärandet av fanorna. Då fanbärarna marscherar in står deltagarna upp och hälsar 
+            fanorna genom att följa dessa med blicken. Under fanornas intåg sjunger en ensemble Polyteknikernas Marsch, medan festpubliken är tyst. 
+            Då fanorna anlänt sätter sig deltagarna och banketten inleds med Helan (se Sångkultur på TF:s årsfest).
+            </p>
+            <p className="page-content-list">
+            Banketten går vidare med förrätt, huvudrätt och efterrätt, under vilka flera tal brukar hållas, bl.a. av Kurator, Styrelseordförande och 
+            inbjudna talare. Då en talare eller sångledare talar eller då det sjungs är det oartigt att röra sig i salen. Försök alltså pricka in 
+            eventuella besök till baren och toaletten till tal- och sångfria stunder. Observera att på TF finns det ingen konferenskultur; du behöver 
+            inte prompt vänta tills huvudrätten är utdukad innan du får stiga upp. 
+            </p>
+            <p className="page-content-list">
+            Efter avklarade tre rätter ställs det igång till dans. Ifall detta kräver fysisk ommöblering brukar gästerna hänvisas till baren för mingel 
+            i väntan på att dansgolvet ställs i ordning. Efter danserna är den formella delen av kvällen slutligen förbi, och fri samvaro i form av 
+            nachspiel tar vida. <br/><br/>
             </p>
             <h2><b>Sångkultur på TF:s årsfest</b></h2>
             <p className="page-content-list">

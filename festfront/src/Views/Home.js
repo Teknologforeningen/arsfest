@@ -59,19 +59,19 @@ const Home = () => {
                         <b>19.3.2022</b>
                     </p>
                     <p className="content-list">
-                        Solenn akt            15:00                  Tekniska Muséet, Viksvägen 1
+                        15:00 &nbsp;&nbsp;&nbsp;&nbsp; Solenn akt, Tekniska Muséet, Viksvägen 1
                     </p>
                     <p className="content-list">
-                        Cocktail                 17:00        Wirtaamo, Katarina av Sachsens gata 9
+                        17:00 &nbsp;&nbsp;&nbsp;&nbsp; Cocktail, Wirtaamo, Katarina av Sachsens gata 9
                     </p>
                     <p className="content-list">
-                        Bankett                 18:00                  Wirtaamo, Katarina av Sachsens gata 9<br/><br/>
+                        18:00 &nbsp;&nbsp;&nbsp;&nbsp; Bankett, Wirtaamo, Katarina av Sachsens gata 9<br/><br/>
                     </p>
                     <p className="content-list">
                         <b>20.3.2022</b>
                     </p>
                     <p className="content-list">
-                        Sillfrukost             12:00                  Urdsgjallar, Otsvängen 22<br/><br/>
+                        12:00 &nbsp;&nbsp;&nbsp;&nbsp; Sillfrukost, Urdsgjallar, Otsvängen 22<br/><br/>
                     </p>
                         
                     <p className="page-content-text">
