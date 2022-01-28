@@ -26,6 +26,7 @@ export const initRoutes = (app: Application) => {
             const participantObj = req.body as IParticipant;
             await createParticipant(participantObj);
             console.log("participant created");
+            res.sendStatus(200);
         
         } catch (e) {
             console.log(e);

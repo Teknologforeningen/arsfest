@@ -4,7 +4,6 @@ import express from 'express';
 import * as BodyParser from 'body-parser';
 import cors from 'cors';
 import { initRoutes } from "./routes";
-//import { cors } from 'cors';
 
 createConnection().then(async connection => {
 
@@ -12,9 +11,8 @@ createConnection().then(async connection => {
         const app = express();
 
         app.use(BodyParser.json());
-        app.use(cors());
 
-        // app.use(cors())
+//        app.use(cors())
 
         initRoutes(app);
 
