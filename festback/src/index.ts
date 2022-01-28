@@ -16,15 +16,6 @@ createConnection().then(async connection => {
 
         initRoutes(app);
 
-        const path = require('path');
-
-        app.use(express.static(path.resolve(__dirname, '../../festfront/build')));
-        app.get('*', (req, res) => {
-            res.sendFile(path.resolve(
-                __dirname, '../../festfront/build', 'index.html'
-            )); 
-        });
-
         app.listen(5000);
         console.log("Server started on 5000");
     } catch (e) {

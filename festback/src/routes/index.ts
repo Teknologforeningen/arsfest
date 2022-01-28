@@ -1,10 +1,11 @@
-import {Request, Response, Application} from 'express';
+import express, {Request, Response, Application} from 'express';
 import { close } from 'inspector';
 import { SimpleConsoleLogger } from 'typeorm';
 import { createParticipant, IParticipant, getParticipants } from '../entity/Participant';
+const path = require('path');
 
 export const initRoutes = (app: Application) => {
-	app.get('/participants', async (req: Request, res: Response) => {
+	app.get('/api/participants', async (req: Request, res: Response) => {
         try {
             const participants = await getParticipants();
             res.send(participants);       
@@ -14,7 +15,7 @@ export const initRoutes = (app: Application) => {
             res.sendStatus(400);
         }
     });
-	app.post('/participant', async (req: Request, res: Response) => {
+	app.post('/api/participant', async (req: Request, res: Response) => {
         try {
             const regOpens = new Date('27 January 2022 20:00')
             const currentTime = new Date;
@@ -32,5 +33,12 @@ export const initRoutes = (app: Application) => {
             console.log(e);
             res.sendStatus(400);
         }
+    });
+
+    app.use(express.static(path.resolve(__dirname, '../../festfront/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(
+            __dirname, '../../festfront/build', 'index.html'
+        )); 
     });
 };
