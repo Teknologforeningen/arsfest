@@ -15,6 +15,7 @@ import Fotoinfo from "./Views/Fotoinfo";
 import Anmalan from "./Views/Anmalan"
 import AnmalanSuccee from "./Views/AnmalanSuccee";
 import AnmalanMisslyckad from "./Views/AnmalanMisslyckad";
+import Deltagare from "./Views/Deltagare"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/anmalan" element={<Anmalan />}/>
           <Route path="/anmalansuccee" element={<AnmalanSuccee />}/>
           <Route path="/anmalanmisslyckad" element={<AnmalanMisslyckad />}/>
+          <Route path="/deltagare" element={<Deltagare />}/>
           {//<Route path="/anmalan" component={deltagaranmalan}/>
           //<Route path="/fotoinfo" component={fotoinfo}/>
           //<Route path="/coronainfo" component={coronainfo}/>
