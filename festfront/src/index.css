@@ -143,7 +143,7 @@ div::-webkit-scrollbar-thumb
 }
 
 a {
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: none;
   font-size: 20px;
 }
@@ -171,11 +171,12 @@ a {
   display: flex;
 }
 
-.spinner-container {
+.center-container {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 @media screen and (min-width: 1050px) {

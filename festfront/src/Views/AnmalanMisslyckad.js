@@ -10,7 +10,11 @@ const AnmalanMisslyckad = () => {
             <div className="page-content">
                 <div className="page-content-container"> 
                     <div className="page-content-center">
-                        <h2>Anmälan Misslyckad</h2>
+                        <div className="center-container">
+                            <div>
+                            <h2>Anmälan misslyckad</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

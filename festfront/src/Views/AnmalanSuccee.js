@@ -10,7 +10,13 @@ const AnmalanSuccee = () => {
             <div className="page-content">
                 <div className="page-content-container"> 
                     <div className="page-content-center">
-                        <h2>Anmälan lyckad</h2>
+                        <div className="center-container">
+                            <div>
+                            <h2>Välkommen på TFs 150:nde årsfest!</h2>
+                            <br></br>
+                            <h2>Din anmälan har tagits emot</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

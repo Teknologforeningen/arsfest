@@ -205,7 +205,7 @@ const RegForm = () => {
             </div>
         </div>
         :
-        <div className="spinner-container">
+        <div className="center-container">
             <div class="spinner-border text-light" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
