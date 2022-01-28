@@ -167,6 +167,17 @@ a {
   justify-content: flex-end;
 }
 
+.mandatory-field {
+  display: flex;
+}
+
+.spinner-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 1050px) {
   .mobile-nav-container {
     display: none !important;

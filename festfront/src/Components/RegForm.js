@@ -20,6 +20,11 @@ const RegForm = () => {
         kommentarer: "",
         visible: false
     });
+    const [checkData, setCheckData] = useState({
+        foto: false,
+        gdpr: false
+    });
+    const [formSending, setFormSending] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -33,10 +38,15 @@ const RegForm = () => {
         setFormData({
             ...formData,
             [event.target.name]: event.target.checked
-        })
+        });
+        setCheckData({
+            ...checkData,
+            [event.target.name]: event.target.checked
+        });
     }
 
     const handleSend = async () => {
+        setFormSending(true);
         const dataToSend = formData;
         dataToSend.pris = parseInt(dataToSend.pris);
         console.log(dataToSend);
@@ -51,17 +61,30 @@ const RegForm = () => {
         })
     }
 
+    const isValid = () => {
+        const valid = (
+            formData.namn !== "" &&
+            formData.email !== "" &&
+            checkData.foto &&
+            checkData.gdpr
+        )
+        return valid;
+    }
+
     return (
+        <>
+        {!formSending?
         <div className="form-container">
             {/* Namn */}
+            
             <div className="mb-3">
-                <label htmlFor="namn" className="form-label">Namn:</label>
+                <label htmlFor="namn" className="form-label">* Namn:</label>
                 <input type="text" className="form-control" id="namn"
                     name="namn" value={formData.namn} onChange={handleChange} />
             </div>
             {/* Email */}
             <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email:</label>
+                <label htmlFor="email" className="form-label">* Email:</label>
                 <input type="email" className="form-control" id="email"
                     name="email" value={formData.email} onChange={handleChange} />
             </div>
@@ -154,12 +177,41 @@ const RegForm = () => {
                     Mitt namn får synas i deltagarlistan
                 </label>
             </div>
+            {/* Photo guidelines */}
+            <div className="mandatory-field">
+                <p className="pe-2">*</p>
+                <div className="form-check mb-3">
+                    <input className="form-check-input" type="checkbox" defaultChecked={checkData.foto} value={checkData.foto}
+                        id="foto" name="foto" onChange={handleCheckChange} />
+                    <label className="form-check-label" htmlFor="foto">
+                        Jag har läst fotografens riktlinjer
+                    </label>
+                </div>
+            </div>
+            {/* GDPR */}
+            <div className="mandatory-field">
+                <p className="pe-2">*</p>
+                <div className="form-check mb-3">
+                    <input className="form-check-input" type="checkbox" defaultChecked={checkData.gdpr} value={checkData.gdpr}
+                        id="gdpr" name="gdpr" onChange={handleCheckChange} />
+                    <label className="form-check-label" htmlFor="gdpr">
+                        GDPR
+                    </label>
+                </div>
+            </div>
             {/* Send form button */}
             <div className="form-btn-container">
-                <button type="button" className="btn btn-primary" onClick={handleSend}>Skicka</button>
+                <button type="button" className={"btn btn-primary " + (isValid()? '' : 'disabled')} onClick={handleSend}>Skicka</button>
             </div>
-            
         </div>
+        :
+        <div className="spinner-container">
+            <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        }
+        </>
     )
 }
 
