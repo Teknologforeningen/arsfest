@@ -236,3 +236,8 @@ a {
     max-height: calc(100% - 56px);
   }
 }
+
+.reg-ol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

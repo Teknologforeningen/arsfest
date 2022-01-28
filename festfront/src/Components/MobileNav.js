@@ -18,10 +18,13 @@ const MobileNav = () => {
             <img id="navMenuClose" src="./assets/close.svg" className="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
             <ul className="nav-ul">
                 <li className="nav-li">
+                <a href="./">Basinfo</a>
+                </li>
+                <li className="nav-li">
                 <a href="./anmalan">Deltagaranmälan</a>
                 </li>
                 <li className="nav-li">
-                <a href="./">Basinfo</a>
+                <a href="./deltagare">Deltagarlista</a>
                 </li>
                 <li className="nav-li">
                 <a href="./fotoinfo">Fotoinfo</a>
