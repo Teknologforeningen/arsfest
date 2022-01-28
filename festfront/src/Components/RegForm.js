@@ -40,7 +40,7 @@ const RegForm = () => {
         const dataToSend = formData;
         dataToSend.pris = parseInt(dataToSend.pris);
         console.log(dataToSend);
-        axios.post("http://localhost:5000/participant", dataToSend)
+        axios.post(`${process.env.REACT_APP_API_URL}/participant`, dataToSend)
         .then((response) => {
             console.log(response);
             navigate("../anmalansuccee", { replace: true });

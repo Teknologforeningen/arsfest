@@ -18,7 +18,7 @@ export const initRoutes = (app: Application) => {
         try {
             const regOpens = new Date('27 January 2022 20:00')
             const currentTime = new Date;
-            if (true) {
+            if (currentTime < regOpens) {
                 res.sendStatus(400);
                 return;
             } 
