@@ -2,7 +2,7 @@ import MobileNav from "../Components/MobileNav";
 import Nav from "../Components/Nav";
 import RegForm from "../Components/RegForm";
 
-const formOpenDate = new Date('28 January 2022 18:34');
+const formOpenDate = new Date('29 January 2022 12:00');
 
 const Anmalan = () => {
     const isFormOpen = () => {
@@ -25,7 +25,7 @@ const Anmalan = () => {
                     <>
                         <h2 className="page-content-title">Deltagaranmälan</h2>
                         <p className="page-content-text">
-                            Anmälan uppdateras för tillfället. Anmälan öppnar 31.1 för inbjudna gäster och den öppna anmälan öppnar 7.2.
+                            Anmälan uppdateras för tillfället. Anmälan öppnar 31.1 kl 12 för inbjudna gäster och den öppna anmälan öppnar 7.2 kl 12.
                         </p>
                     </>
                     }

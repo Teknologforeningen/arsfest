@@ -49,14 +49,14 @@ const RegForm = () => {
         setFormSending(true);
         const dataToSend = formData;
         dataToSend.pris = parseInt(dataToSend.pris);
-        console.log(dataToSend);
+        // console.log(dataToSend);
         axios.post(`${process.env.REACT_APP_API_URL}/api/participant`, dataToSend)
         .then((response) => {
-            console.log(response);
+            // console.log(response);
             navigate("../anmalansuccee", { replace: true });
         })
         .catch((error) => {
-            console.log(error);
+            // console.log(error);
             navigate("../anmalanmisslyckad", { replace: true });
         })
     }
@@ -78,35 +78,39 @@ const RegForm = () => {
             {/* Namn */}
             
             <div className="mb-3">
-                <label htmlFor="namn" className="form-label">* Namn:</label>
+                <label htmlFor="namn" className="form-label">* Namn</label>
                 <input type="text" className="form-control" id="namn"
                     name="namn" value={formData.namn} onChange={handleChange} />
             </div>
             {/* Email */}
             <div className="mb-3">
-                <label htmlFor="email" className="form-label">* Email:</label>
+                <label htmlFor="email" className="form-label">* Epost</label>
                 <input type="email" className="form-control" id="email"
                     name="email" value={formData.email} onChange={handleChange} />
             </div>
             {/* Pris */}
             <div className="mb-3">
-                <label htmlFor="pris" className="form-label">Pris:</label>
+                <label htmlFor="pris" className="form-label">* Jag deltar med...</label>
                 <select type="number" className="form-select" id="pris" value={formData.pris}
                     name="pris" onChange={handleChange}>
-                    <option value={100}>100€ - studerande</option>
-                    <option value={120}>120€ - övriga</option>
-                    <option value={300}>300€ - understödspris</option>
+                    <option value={100}>Supékort studerande (100€)</option>
+                    <option value={120}>Supékort övriga (120€)</option>
+                    <option value={300}>Understödspris (300€)</option>
                 </select>
             </div>
             {/* Avec */}
             <div className="mb-3">
-                <label htmlFor="avec" className="form-label">Avec:</label>
+                <label htmlFor="avec" className="form-label">
+                    Namn på avec (lämna tomt om du inte deltar med en avec, observera att också avecer ska skicka in personlig deltagaranmälan)
+                </label>
                 <input type="avec" className="form-control" id="avec"
                     name="avec" value={formData.avec} onChange={handleChange} />
             </div>
             {/* Sittplats */}
             <div className="mb-3">
-                <label htmlFor="sittplats" className="form-label">Sittplats:</label>
+                <label htmlFor="sittplats" className="form-label">
+                    Önskat bordssällskap (namn eller gruppnamn)
+                </label>
                 <input type="sittplats" className="form-control" id="sittplats"
                     name="sittplats" value={formData.sittplats} onChange={handleChange} />
             </div>
@@ -115,7 +119,7 @@ const RegForm = () => {
                 <input className="form-check-input" type="checkbox" value={formData.sillis} defaultChecked={formData.sillis}
                 id="sillis" name="sillis" onChange={handleCheckChange} />
                 <label className="form-check-label" htmlFor="sillis">
-                    Sillis
+                Jag vill anmäla mig till sillisen i samband med deltagaranmälan (12€)
                 </label>
             </div>
             {/* Solenn */}
@@ -123,12 +127,14 @@ const RegForm = () => {
                 <input className="form-check-input" type="checkbox" value={formData.solenn} defaultChecked={formData.solenn}
                 id="solenn" name="solenn" onChange={handleCheckChange} />
                 <label className="form-check-label" htmlFor="solenn">
-                    Solenn
+                    Jag vill delta i den solenna akten för att framföra en hälsning åt jubilaren
                 </label>
             </div>
             {/* Representerar */}
             <div className="mb-3">
-                <label htmlFor="representerar" className="form-label">Representerar:</label>
+                <label htmlFor="representerar" className="form-label">
+                    Förening eller instans som du representerar
+                </label>
                 <input type="representerar" className="form-control" id="representerar"
                     name="representerar" value={formData.representerar} onChange={handleChange} />
             </div>
@@ -142,7 +148,7 @@ const RegForm = () => {
             </div>
             {/* Meny */}
             <div className="mb-3">
-                <label htmlFor="meny" className="form-label">Meny:</label>
+                <label htmlFor="meny" className="form-label">Meny</label>
                 <select className="form-select" id="meny" value={formData.meny}
                     name="meny" onChange={handleChange}>
                     <option value={"Fisk"}>Fisk</option>
@@ -151,7 +157,7 @@ const RegForm = () => {
             </div>
             {/* Specialdieter */}
             <div className="mb-3">
-                <label htmlFor="specialdieter" className="form-label">Specialdieter:</label>
+                <label htmlFor="specialdieter" className="form-label">Allergier och specialdieter</label>
                 <input type="specialdieter" className="form-control" id="specialdieter"
                     name="specialdieter" value={formData.specialdieter} onChange={handleChange} />
             </div>
@@ -160,12 +166,12 @@ const RegForm = () => {
                 <input className="form-check-input" type="checkbox" defaultChecked={formData.buss} value={formData.buss}
                     id="buss" name="buss" onChange={handleCheckChange} />
                 <label className="form-check-label" htmlFor="buss">
-                    Buss
+                    Jag vill ha busstransport från banketten till efterfesten på Urdsgjallar
                 </label>
             </div>
             {/* Kommentarer */}
             <div className="mb-3">
-                <label htmlFor="kommentarer" className="form-label">Kommentarer:</label>
+                <label htmlFor="kommentarer" className="form-label">Kommentarer</label>
                 <textarea rows={4} type="specialdieter" className="form-control" id="kommentarer"
                     name="kommentarer" value={formData.kommentarer} onChange={handleChange} />
             </div>
@@ -174,7 +180,7 @@ const RegForm = () => {
                 <input className="form-check-input" type="checkbox" defaultChecked={formData.visible} value={formData.visible}
                     id="visible" name="visible" onChange={handleCheckChange} />
                 <label className="form-check-label" htmlFor="visible">
-                    Mitt namn får synas i deltagarlistan
+                    Jag vill att mitt namn ska synas i den öppna deltagarlistan
                 </label>
             </div>
             {/* Photo guidelines */}
@@ -184,7 +190,7 @@ const RegForm = () => {
                     <input className="form-check-input" type="checkbox" defaultChecked={checkData.foto} value={checkData.foto}
                         id="foto" name="foto" onChange={handleCheckChange} />
                     <label className="form-check-label" htmlFor="foto">
-                        Jag har läst fotografens riktlinjer
+                        Jag har läst informationen om fotografering under årsfesten. Ifall jag inte vill bli fotograferad under årsfesten följer jag de anvisningar som getts på “Fotoinfo”-fliken.
                     </label>
                 </div>
             </div>

@@ -12,7 +12,8 @@ const AnmalanMisslyckad = () => {
                     <div className="page-content-center">
                         <div className="center-container">
                             <div>
-                            <h2>Anmälan misslyckad</h2>
+                                <h2 className="page-content-title">Anmälan misslyckades</h2>
+                                <p className="page-content-text">Något gick fel när din anmälan hanterades, vänligen skicka in en ny anmälan</p>
                             </div>
                         </div>
                     </div>
