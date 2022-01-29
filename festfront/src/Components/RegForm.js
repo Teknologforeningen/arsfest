@@ -201,7 +201,7 @@ const RegForm = () => {
                     <input className="form-check-input" type="checkbox" defaultChecked={checkData.gdpr} value={checkData.gdpr}
                         id="gdpr" name="gdpr" onChange={handleCheckChange} />
                     <label className="form-check-label" htmlFor="gdpr">
-                        GDPR
+                        Jag godkänner att mina personuppgifter används för festens förverkligande. Uppgifterna raderas senast 14 dagar efter ordnandet av festen.
                     </label>
                 </div>
             </div>

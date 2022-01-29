@@ -25,7 +25,8 @@ const Anmalan = () => {
                     <>
                         <h2 className="page-content-title">Deltagaranmälan</h2>
                         <p className="page-content-text">
-                            Anmälan uppdateras för tillfället. Anmälan öppnar 31.1 kl 12 för inbjudna gäster och den öppna anmälan öppnar 7.2 kl 12.
+                            Anmälan öppnar 31.1 kl 12 för inbjudna gäster och den öppna anmälan öppnar 7.2 kl 12. 
+                            Ifall kvoten för inbjudna gäster fylls stänger anmälan och öppnar igen till den öppna anmälan.
                         </p>
                     </>
                     }
