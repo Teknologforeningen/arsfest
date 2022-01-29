@@ -15,7 +15,7 @@ export const initRoutes = (app: Application) => {
     });
 	app.post('/api/participant', async (req: Request, res: Response) => {
         try {
-            const regOpens = new Date('31 January 2022 12:00')
+            const regOpens = new Date('29 January 2022 12:00')
             const currentTime = new Date;
             if (currentTime < regOpens) {
                 res.sendStatus(400);
