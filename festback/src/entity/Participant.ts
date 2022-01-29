@@ -9,7 +9,7 @@ export interface IParticipant {
     sillis: boolean;
     solenn: boolean;
     representerar: string;
-    alkohol: boolean;
+    alkoholfri: boolean;
     meny: string;
     specialdieter: string;
     buss: boolean;
@@ -48,7 +48,7 @@ export class Participant {
     representerar: string;
 
     @Column()
-    alkohol: boolean;
+    alkoholfri: boolean;
 
     @Column()
     meny: string;
@@ -80,7 +80,7 @@ export const createParticipant = async (participant: IParticipant) => {
     newParticipant.sillis = participant.sillis;
     newParticipant.solenn = participant.solenn;
     newParticipant.representerar = participant.representerar;
-    newParticipant.alkohol = participant.alkohol;
+    newParticipant.alkoholfri = participant.alkoholfri;
     newParticipant.meny = participant.meny;
     newParticipant.specialdieter = participant.specialdieter;
     newParticipant.buss = participant.buss;

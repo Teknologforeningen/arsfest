@@ -13,7 +13,7 @@ const RegForm = () => {
         sillis: false,
         solenn: false,
         representerar: "",
-        alkohol: true,
+        alkoholfri: false,
         meny: "Fisk",
         specialdieter: "",
         buss: false,
@@ -138,12 +138,12 @@ const RegForm = () => {
                 <input type="representerar" className="form-control" id="representerar"
                     name="representerar" value={formData.representerar} onChange={handleChange} />
             </div>
-            {/* Alkohol */}
+            {/* Alkoholfri */}
             <div className="form-check mb-3">
-                <input className="form-check-input" type="checkbox" defaultChecked={formData.alkohol} value={formData.alkohol}
-                    id="alkohol" name="alkohol" onChange={handleCheckChange} />
-                <label className="form-check-label" htmlFor="alkohol">
-                    Alkohol
+                <input className="form-check-input" type="checkbox" defaultChecked={formData.alkoholfri} value={formData.alkoholfri}
+                    id="alkoholfri" name="alkoholfri" onChange={handleCheckChange} />
+                <label className="form-check-label" htmlFor="alkoholfri">
+                    Alkoholfri
                 </label>
             </div>
             {/* Meny */}
