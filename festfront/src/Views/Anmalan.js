@@ -2,7 +2,7 @@ import MobileNav from "../Components/MobileNav";
 import Nav from "../Components/Nav";
 import RegForm from "../Components/RegForm";
 
-const formOpenDate = new Date('29 January 2022 12:00');
+const formOpenDate = new Date('31 January 2022 12:00');
 
 const Anmalan = () => {
     const isFormOpen = () => {
