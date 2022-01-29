@@ -78,7 +78,7 @@ const RegForm = () => {
             {/* Namn */}
             
             <div className="mb-3">
-                <label htmlFor="namn" className="form-label">* Namn</label>
+                <label htmlFor="namn" className="form-label">* Namn (för- och efternamn)</label>
                 <input type="text" className="form-control" id="namn"
                     name="namn" value={formData.namn} onChange={handleChange} />
             </div>
