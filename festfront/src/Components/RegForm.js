@@ -1,8 +1,39 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+const formOpenDate = new Date('30 January 2022 12:00');
+const participantLimit = 600;
 
+const isRegClosed = () => {
+    const currDate = new Date();
+    return currDate < formOpenDate;
+}
+
+const RegFull = () => {
+    return (
+        <>
+        <h2 className="page-content-title">Deltagaranmälan</h2>
+        <p className="page-content-text">
+            Kvoten för inbjudna gäster är fylld. 
+            Det går ännu att anmäla sig med den öppna anmälan som öppnar 7.2 kl 12.
+        </p>
+        </> 
+    )
+}
+
+const RegClosed = () => {
+    return (
+        <>
+        <h2 className="page-content-title">Deltagaranmälan</h2>
+        <p className="page-content-text">
+            Anmälan öppnar 31.1 kl 12 för inbjudna gäster och den öppna anmälan öppnar 7.2 kl 12. 
+            Ifall kvoten för inbjudna gäster fylls stänger anmälan och öppnar igen till den öppna anmälan.
+        </p>
+        </>
+    )
+}  
+  
 const RegForm = () => {
     const [formData, setFormData] = useState({
         namn: "",
@@ -25,6 +56,16 @@ const RegForm = () => {
         gdpr: false
     });
     const [formSending, setFormSending] = useState(false);
+    const [isRegFull, setIsRegFull] = useState(false);
+
+    useEffect(() => {
+      axios
+      .get(`${process.env.REACT_APP_API_URL}/api/participants`)
+      .then(returnedParticipants => {
+        setIsRegFull(returnedParticipants.data.length > participantLimit);
+      })
+    }, [])
+  
     const navigate = useNavigate();
 
     const handleChange = (event) => {
@@ -70,6 +111,12 @@ const RegForm = () => {
         )
         return valid;
     }
+    
+    if (isRegClosed())
+        return <RegClosed />;
+
+    if (isRegFull)
+        return <RegFull />;
 
     return (
         <>
