@@ -15,7 +15,6 @@ const Deltagare = () => {
                 </div>
             </div>
         </div>
-        
     </div>
     </>
     )

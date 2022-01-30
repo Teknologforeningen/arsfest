@@ -14,13 +14,12 @@ const RegList = () => {
 
   return (
     <>
-    <h2>Deltagare</h2>
-    <ol className="reg-ol">
-      {participants.map((participant, index) =>
-        <li key={index}>{participant}</li>
-      )}
-    </ol>
-
+    <h2 className="page-content-title">Deltagare</h2>
+      <ol className="reg-ol">
+        {participants.map((participant, index) =>
+          <li key={index}>{participant}</li>
+        )}
+      </ol>
     </>
   )
 }

@@ -12,11 +12,11 @@ const AnmalanSuccee = () => {
                     <div className="page-content-center">
                         <div className="center-container">
                             <div>
-                            <h2>Välkommen på TFs 150:nde årsfest!</h2>
+                            <h2 className="page-content-title">Välkommen på TFs 150:nde årsfest!</h2>
                             <br></br>
-                            <h2>Din anmälan har tagits emot.</h2>
+                            <h2 className="page-content-title">Din anmälan har tagits emot.</h2>
                             <br></br>
-                            <h2>Observera att anmälan går att avboka tills 14.2, varefter den blir bindande.</h2>
+                            <p className="page-content-text">Observera att anmälan går att avboka tills 14.2, varefter den blir bindande.</p>
                             </div>
                         </div>
                     </div>
