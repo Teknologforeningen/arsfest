@@ -2,6 +2,9 @@ import express, {Request, Response, Application} from 'express';
 import { createParticipant, IParticipant, getParticipants } from '../entity/Participant';
 const path = require('path');
 
+const regOpens = new Date('31 January 2022 12:00')
+const participantLimit = 550;
+
 export const initRoutes = (app: Application) => {
 	app.get('/api/participants', async (req: Request, res: Response) => {
         try {
@@ -15,17 +18,21 @@ export const initRoutes = (app: Application) => {
     });
 	app.post('/api/participant', async (req: Request, res: Response) => {
         try {
-            const regOpens = new Date('31 January 2022 12:00')
             const currentTime = new Date;
             if (currentTime < regOpens) {
-                res.sendStatus(400);
+                res.status(403).send('Anmälan har inte ännu öppnat');
                 return;
             } 
 
+            const participantAmount = await getParticipants();
+            if (participantAmount.length >= participantLimit) {
+                res.status(409).send('Kvoten är fylld')
+                return;
+            }
             const participantObj = req.body as IParticipant;
             await createParticipant(participantObj);
             // console.log("participant created");
-            res.sendStatus(200);
+            res.sendStatus(201);
         
         } catch (e) {
             console.log(e);
