@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { setErrorMessage } from "../ErrorMessage";
 
 const formOpenDate = new Date('30 January 2022 12:00');
-const participantLimit = 600;
+const participantLimit = 550;
 
 const isRegClosed = () => {
     const currDate = new Date();
@@ -62,7 +63,7 @@ const RegForm = () => {
       axios
       .get(`${process.env.REACT_APP_API_URL}/api/participants`)
       .then(returnedParticipants => {
-        setIsRegFull(returnedParticipants.data.length > participantLimit);
+        setIsRegFull(returnedParticipants.data.length >= participantLimit);
       })
     }, [])
   
@@ -98,6 +99,7 @@ const RegForm = () => {
         })
         .catch((error) => {
             // console.log(error);
+            setErrorMessage(error.request.response);
             navigate("../anmalanmisslyckad", { replace: true });
         })
     }

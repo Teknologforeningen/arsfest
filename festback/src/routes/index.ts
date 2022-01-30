@@ -26,7 +26,7 @@ export const initRoutes = (app: Application) => {
 
             const participantAmount = await getParticipants();
             if (participantAmount.length >= participantLimit) {
-                res.status(409).send('Kvoten är fylld')
+                res.status(409).send('Kvoten är fylld');
                 return;
             }
             const participantObj = req.body as IParticipant;
