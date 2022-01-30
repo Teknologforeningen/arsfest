@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { setErrorMessage } from "../ErrorMessage";
 
-const formOpenDate = new Date('30 January 2022 12:00');
+const formOpenDate = new Date('31 January 2022 12:00');
 const participantLimit = 550;
 
 const isRegClosed = () => {
