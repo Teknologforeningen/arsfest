@@ -1,27 +1,12 @@
 import express, {Request, Response, Application} from 'express';
 import { createParticipant, IParticipant, getParticipants } from '../entity/Participant';
-import cors from 'cors';
 const path = require('path');
 
 const regOpens = new Date('31 January 2022 12:00')
 const participantLimit = 550;
 
-var whitelist = ['https://arsfest.tf.fi',
-                 'https://arsfest.teknolog.fi',
-                 'https://arsfest.teknologforeningen.fi',
-                 'https://arsfest.xn--teknologfreningen-7zb.fi']
-var corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback('Origin not allowed');
-    }
-  }
-}
-
 export const initRoutes = (app: Application) => {
-	app.get('/api/participants', cors(corsOptions), async (req: Request, res: Response) => {
+	app.get('/api/participants', async (req: Request, res: Response) => {
         try {
             const participants = await getParticipants();
             res.send(participants);       
@@ -31,7 +16,7 @@ export const initRoutes = (app: Application) => {
             res.sendStatus(400);
         }
     });
-	app.post('/api/participant', cors(corsOptions), async (req: Request, res: Response) => {
+	app.post('/api/participant', async (req: Request, res: Response) => {
         try {
             const currentTime = new Date;
             if (currentTime < regOpens) {
