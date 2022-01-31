@@ -8,7 +8,7 @@ const participantLimit = 550;
 
 const isRegClosed = () => {
     const currDate = new Date();
-    return currDate < formOpenDate;
+    return false;//currDate < formOpenDate;
 }
 
 const RegFull = () => {
