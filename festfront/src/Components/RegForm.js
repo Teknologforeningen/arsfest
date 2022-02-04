@@ -3,14 +3,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { setErrorMessage } from "../ErrorMessage";
 
-const formOpenDate = new Date('31 January 2022 12:00');
-const participantLimit = 550;
-
-const isRegClosed = () => {
-    const currDate = new Date();
-    return false;//currDate < formOpenDate;
-}
-
 const RegFull = () => {
     return (
         <>
@@ -57,13 +49,16 @@ const RegForm = () => {
         gdpr: false
     });
     const [formSending, setFormSending] = useState(false);
-    const [isRegFull, setIsRegFull] = useState(false);
+    const [regStatus, setRegStatus] = useState({
+        isFull: false,
+        isClosed: false
+    });
 
     useEffect(() => {
       axios
-      .get(`${process.env.REACT_APP_API_URL}/api/participants`)
-      .then(returnedParticipants => {
-        setIsRegFull(returnedParticipants.data.length >= participantLimit);
+      .get(`${process.env.REACT_APP_API_URL}/api/regstatus`)
+      .then(res => {
+        setRegStatus(res.data);
       })
     }, [])
   
@@ -114,10 +109,10 @@ const RegForm = () => {
         return valid;
     }
     
-    if (isRegClosed())
+    if (regStatus.isClosed)
         return <RegClosed />;
 
-    if (isRegFull)
+    if (regStatus.isFull)
         return <RegFull />;
 
     return (

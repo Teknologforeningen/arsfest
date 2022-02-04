@@ -6,7 +6,18 @@ const regOpens = new Date('31 January 2022 12:00')
 const participantLimit = 550;
 
 export const initRoutes = (app: Application) => {
-	app.get('/api/participants', async (req: Request, res: Response) => {
+	app.get('/api/regstatus', async (req: Request, res: Response) => {
+        try {
+            const participants = await getParticipants();
+            const isFull = participants.length >= participantLimit;
+            const isClosed = new Date < regOpens;
+            res.send({isFull, isClosed});
+        } catch (e) {
+            console.log(e);
+            res.sendStatus(400);
+        }
+    });
+    app.get('/api/participants', async (req: Request, res: Response) => {
         try {
             const participants = await getParticipants();
             res.send(participants);       
