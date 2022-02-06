@@ -203,7 +203,7 @@ const RegForm = () => {
             </div>
             {/* Meny */}
             <div className="mb-3">
-                <label htmlFor="meny" className="form-label">Meny</label>
+                <label htmlFor="meny" className="form-label">* Meny</label>
                 <select className="form-select" id="meny" value={formData.meny}
                     name="meny" onChange={handleChange}>
                     <option value={"Fisk"}>Fisk</option>
