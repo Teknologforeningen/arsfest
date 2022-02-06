@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { setErrorMessage } from "../ErrorMessage";
 
-const RegFull = () => {
+const InvitedRegFull = () => {
     return (
         <>
         <h2 className="page-content-title">Deltagaranmälan</h2>
@@ -20,8 +20,8 @@ const RegClosed = () => {
         <>
         <h2 className="page-content-title">Deltagaranmälan</h2>
         <p className="page-content-text">
-            Anmälan öppnar 31.1 kl 12 för inbjudna gäster och den öppna anmälan öppnar 7.2 kl 12. 
-            Ifall kvoten för inbjudna gäster fylls stänger anmälan och öppnar igen till den öppna anmälan.
+            Anmälan för inbjudna gäster öppnar 31.1 kl 12 och stänger 6.2 kl 23:59. 
+            Den öppna anmälan öppnar 7.2 kl 12 och stänger 14.2 kl 23:59.
         </p>
         </>
     )
@@ -51,7 +51,8 @@ const RegForm = () => {
     const [formSending, setFormSending] = useState(false);
     const [regStatus, setRegStatus] = useState({
         isFull: false,
-        isClosed: false
+        invitedOpen: true,
+        normalOpen: true
     });
 
     useEffect(() => {
@@ -89,8 +90,12 @@ const RegForm = () => {
         // console.log(dataToSend);
         axios.post(`${process.env.REACT_APP_API_URL}/api/participant`, dataToSend)
         .then((response) => {
-            // console.log(response);
-            navigate("../anmalansuccee", { replace: true });
+            console.log(response);
+            if (response.data === 'full') {
+                navigate("../anmalansucceeReserv", { replace: true });
+            } else {
+                navigate("../anmalansuccee", { replace: true });
+            }
         })
         .catch((error) => {
             // console.log(error);
@@ -109,16 +114,22 @@ const RegForm = () => {
         return valid;
     }
     
-    if (regStatus.isClosed)
+    if (!regStatus.invitedOpen && !regStatus.normalOpen)
         return <RegClosed />;
 
-    if (regStatus.isFull)
-        return <RegFull />;
+    if (regStatus.isFull && regStatus.invitedOpen)
+        return <InvitedRegFull />;
 
     return (
         <>
         {!formSending?
         <div className="form-container">
+            {/* Registration full */}
+            {regStatus.isFull && regStatus.normalOpen &&
+                <p className="page-content-text">
+                    Alla platser till årsfesten är reserverade, men det går ännu att anmäla sig till en reservplats.
+                </p>            
+            }
             {/* Namn */}
             
             <div className="mb-3">

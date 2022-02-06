@@ -2,12 +2,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const RegList = () => {
-  const [participants, setParticipants] = useState([]);
+  const [participants, setParticipants] = useState({
+    normalParticipants: [],
+    reservParticipants: []
+  });
 
   useEffect(() => {
     axios
     .get(`${process.env.REACT_APP_API_URL}/api/participants`)
     .then(returnedParticipants => {
+      console.log(returnedParticipants.data);
       setParticipants(returnedParticipants.data);
     })
   }, [])
@@ -16,10 +20,17 @@ const RegList = () => {
     <>
     <h2 className="page-content-title">Deltagare</h2>
       <ol className="reg-ol">
-        {participants.map((participant, index) =>
+        {participants.normalParticipants.map((participant, index) =>
           <li key={index}>{participant}</li>
         )}
       </ol>
+      <h2 className="page-content-title">Reservplatser</h2>
+      <ol className="reg-ol">
+        {participants.reservParticipants.map((participant, index) =>
+          <li key={index}>{participant}</li>
+        )}
+      </ol>
+
     </>
   )
 }
