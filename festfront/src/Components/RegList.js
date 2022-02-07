@@ -11,7 +11,7 @@ const RegList = () => {
     axios
     .get(`${process.env.REACT_APP_API_URL}/api/participants`)
     .then(returnedParticipants => {
-      console.log(returnedParticipants.data);
+      // console.log(returnedParticipants.data);
       setParticipants(returnedParticipants.data);
     })
   }, [])

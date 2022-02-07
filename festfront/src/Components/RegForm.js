@@ -90,7 +90,7 @@ const RegForm = () => {
         // console.log(dataToSend);
         axios.post(`${process.env.REACT_APP_API_URL}/api/participant`, dataToSend)
         .then((response) => {
-            console.log(response);
+            // console.log(response);
             if (response.data === 'full') {
                 navigate("../anmalansucceeReserv", { replace: true });
             } else {

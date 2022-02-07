@@ -60,7 +60,7 @@ export const initRoutes = (app: Application) => {
                 return;
             }
 
-            if (!invitedRegOpen && !normalRegOpen) {
+            if (!invitedRegOpen() && !normalRegOpen()) {
                 res.status(403).send('Anmälan är stängd');
                 return;
             }
