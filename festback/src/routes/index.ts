@@ -8,7 +8,7 @@ const invitedLimit = 550;
 
 const normalRegOpens = new Date('7 February 2022 12:00');
 const normalRegCloses = new Date('15 February 2022 00:00');
-const normalLimit = 690;
+const normalLimit = 675;
 
 const invitedRegOpen = () => {
     const timeNow = new Date;
