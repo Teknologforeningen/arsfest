@@ -24,7 +24,7 @@ const RegList = () => {
           <li key={index}>{participant}</li>
         )}
       </ol>
-      <h2 className="page-content-title">Reservplatser</h2>
+      <h2 className="page-content-title">Reservlista (Observera att dessa inte garanterar en plats på årsfesten):</h2>
       <ol className="reg-ol">
         {participants.reservParticipants.map((participant, index) =>
           <li key={index}>{participant}</li>
