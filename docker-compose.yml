@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  app:
+    build: .
+    container_name: arsfest_production
+    depends_on:
+      - db
+    # You should probably remove port forwarding when deploying
+    ports:
+      - '5000:5000'
+    networks:
+      - db
+
+  db:
+    container_name: arsfest-db
+    image: postgres:9.6.5-alpine
+    networks:
+      - db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres      
+      - POSTGRES_DB=arsfest
+      - POSTGRES_HOST=arsfest-db
+      - POSTGRES_PORT=5432
+    volumes:
+      - ./db-data:/var/lib/postgresql/data/
+    restart: always
+
+volumes:
+  db-data:
+    driver: local
+
+networks:
+  db:
+    driver: bridge
