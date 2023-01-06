@@ -15,19 +15,19 @@ const dbConnection = async (fastify, options) => {
   await client.query(
     `CREATE TABLE IF NOT EXISTS participant (
       id SERIAL,
-      created_at DATE NOT NULL DEFAULT CURRENT_DATE,
+      created_at TIMESTAMP NOT NULL DEFAULT NOW(),
       name TEXT,
       email TEXT,
-      price INTEGER,
       avec TEXT,
       seating TEXT,
-      sillis BOOLEAN,
-      solenn BOOLEAN,
-      representing TEXT,
-      alcohol BOOLEAN,
       menu TEXT,
       allergies TEXT,
+      representing TEXT,
       comment TEXT,
+      price INTEGER,
+      sillis BOOLEAN,
+      solenn BOOLEAN,
+      alcohol BOOLEAN,
       visible BOOLEAN
     );`
   );
