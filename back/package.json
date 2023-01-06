@@ -1,0 +1,25 @@
+{
+  "name": "arsfest_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/postgres": "^5.1.0",
+    "@fastify/static": "^6.5.0",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.9.2",
+    "fastify-plugin": "^4.3.0",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "nodemon": "^2.0.20"
+  }
+}

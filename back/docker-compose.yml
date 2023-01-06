@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+  app:
+    build: .
+    restart: always
+    environment:
+      - DB_HOST=${DB_HOST:-arsfestdb}
+      - DB_USER=${DB_USER:-arsfest}
+      - DB_PW=${DB_PW:-arsfest}
+      - DB_NAME=${DB_NAME:-arsfest}
+      - PORT=${APP_PORT:-5000}
+    container_name: arsfestapi
+    depends_on:
+      - db
+    ports:
+      - '5000:5000'
+    networks:
+      - db
+
+  db:
+    container_name: arsfestdb
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=${DB_USER:-arsfest}
+      - POSTGRES_PASSWORD=${DB_PW:-arsfest}      
+      - POSTGRES_DB=${DB_NAME:-arsfest}
+    networks:
+      - db
+    volumes:
+      - /var/lib/postgresql/data/:/data/db
+
+volumes:
+  db-data:
+    driver: local
+
+networks:
+  db:
+    driver: bridge
