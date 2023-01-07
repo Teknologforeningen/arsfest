@@ -1,28 +1,18 @@
-# expressfest
+# Arsfest
 
-Simple registration site written with React, Express & TypeORM for the annual ball at TF that might still be running [here](https://arsfest.tf.fi)
+Simple registration site written with Gatsby & Fastify for the annual ball at TF that might still be running [here](https://arsfest.tf.fi)
 
 ## Running the application
+### Prerequisites
+- docker
+- docker-compose
 
-### Docker
-A basic docker deployment is included, you can run it with
+A development environment can be started with
 ```
-sudo docker-compose up --build -d
-```
-
-### Running without docker
-
-#### Prerequisites
-- node
-- postgres (other databases should work aswell)
-
-
-The application requires a database to function (postgres by default). The database can be configured in `festback/ormconfig.js`
- 
-The frontend and backend can be run separately with `cd directory && npm start`
-
-When deploying the application the generated frontend files can be served by express with 
-```
-cd festfront && npm run build && cd ../festback && npm start
+docker-compose -f docker-compose.dev up --build
 ```
 
+A production-ready version of the application can be started with
+```
+docker-compose up --build
+```
