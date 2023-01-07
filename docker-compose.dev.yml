@@ -1,9 +1,9 @@
 version: '3.5'
 
 services:
-  app:
+  api:
     build:
-      context: .
+      context: ./back
       dockerfile: "Dockerfile.dev"
     restart: always
     environment:
@@ -12,17 +12,36 @@ services:
       - DB_PW=${DB_PW:-arsfest}
       - DB_NAME=${DB_NAME:-arsfest}
       - PORT=${APP_PORT:-5000}
-    container_name: arsfestapi
+    container_name: arsfest-api
     depends_on:
       - db
     ports:
       - '5000:5000'
     networks:
       - db
+      - api
     volumes:
       - type: bind
-        source: ./src
+        source: ./back/src
         target: /opt/app/src
+
+  ui:
+    build:
+      context: ./front
+      dockerfile: "Dockerfile.dev"
+    restart: always
+    container_name: arsfest-ui
+    depends_on:
+      - db
+      - api
+    ports:
+      - '8000:8000'
+    networks:
+      - api
+    volumes:
+      - type: bind
+        source: ./front
+        target: /opt/app
 
   db:
     container_name: arsfestdb
@@ -42,4 +61,6 @@ volumes:
 
 networks:
   db:
+    driver: bridge
+  api:
     driver: bridge

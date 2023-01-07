@@ -1,0 +1,8 @@
+.vscode/
+**/node_modules/
+tmp/
+temp/
+**/dist
+**/build/
+public/
+.cache

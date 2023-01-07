@@ -1,0 +1,22 @@
+{
+  "name": "arsfest_frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "arsfest_frontend",
+  "author": "Jonas Bäck",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop -H 0.0.0.0",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^5.3.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

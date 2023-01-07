@@ -1,0 +1,11 @@
+FROM node:19-alpine
+
+WORKDIR /opt/app
+COPY . .
+# ENV GATSBY_DOCKER='true'
+
+RUN npm install
+
+EXPOSE 8000
+
+CMD npm run develop
