@@ -3,8 +3,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `arsfest_frontend`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `TF Årsfest`,
+    siteUrl: `https://arsfest.tf.fi`,
   },
   plugins: [],
 }

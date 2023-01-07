@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import menu from "../images/menu.svg"
+import close from "../images/close.svg"
 
 const MobileNav = () => {
   const [showMobile, setShowMobile] = useState(false);
@@ -7,7 +9,7 @@ const MobileNav = () => {
   return (
     <>
     <div className="mobile-header">
-      <img id="navMenuIcon" src="/assets/menu.svg" className="menu" onClick={() => setShowMobile(!showMobile)}></img>
+      <img id="navMenuIcon" src={menu} className="menu" onClick={() => setShowMobile(!showMobile)}></img>
       <a href="/">
         <h1 className="mobile-nav-header">
           TF 150
@@ -16,7 +18,7 @@ const MobileNav = () => {
     </div>
     {showMobile &&
     <div id="mobileNav" className="mobile-nav-container">
-      <img id="navMenuClose" src="/assets/close.svg" className="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
+      <img id="navMenuClose" src={close} className="menu-close" onClick={() => setShowMobile(!showMobile)}></img>
       <ul className="nav-ul">
         <li className="nav-li">
           <a href="/">Framsida</a>
