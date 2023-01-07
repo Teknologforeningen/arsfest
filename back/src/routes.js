@@ -39,11 +39,11 @@ const participantSchema = {
       'visible'
     ],
     properties: {
-      name: { type: 'string' },
-      email: { type: 'string' },
+      name: { type: 'string', minLength: 1 },
+      email: { type: 'string', minLength: 1 },
       avec: { type: 'string' },
       seating: { type: 'string' },
-      menu: { type: 'string' },
+      menu: { type: 'string', minLength: 1 },
       allergies: { type: 'string' },
       comment: { type: 'string' },
       representing: { type: 'string' },
@@ -110,7 +110,8 @@ const regRoutes = async (fastify) => {
       }
 
       const participant = req.body;
-      const { rows } = await client.query(
+      console.log(participant)
+      await client.query(
         `INSERT INTO participant(
           name,
           email,
@@ -142,7 +143,6 @@ const regRoutes = async (fastify) => {
           '${participant.visible}'
         )`
       );
-      console.log(rows)
       res.code(201).send({ participant });
     } catch (error) {
       console.log(error);

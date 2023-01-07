@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { navigate } from "@reach/router"
+import { navigate } from "gatsby"
 import { createParticipant, getRegStatus } from '../services/participants'
 import { setErrorMessage } from "../ErrorMessage";
 
@@ -31,14 +31,14 @@ const RegClosed = () => {
   
 const RegForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    avec: "",
-    seating: "",
+    name: null,
+    email: null,
+    avec: null,
+    seating: null,
     menu: "Fisk",
-    allergies: "",
-    representing: "",
-    comment: "",
+    allergies: null,
+    representing: null,
+    comment: null,
     price: 100,
     sillis: false,
     solenn: false,
@@ -83,30 +83,24 @@ const RegForm = () => {
 
   const handleSend = async () => {
     setFormSending(true);
-    const dataToSend = formData;
-    dataToSend.pris = parseInt(dataToSend.pris);
-    // console.log(dataToSend);
-    // axios.post(`${process.env.REACT_APP_API_URL}/api/participant`, dataToSend)
-    axios.post(`http://localhost:5000/api/participant`, dataToSend)
-    .then((response) => {
-      // console.log(response);
+    try {
+      const response = await createParticipant(formData)
       if (response.data === 'full') {
         navigate("/anmalansucceereserv/");
       } else {
         navigate("/anmalansuccee/");
-      }
-    })
-    .catch((error) => {
+      }  
+    } catch (error) {
       console.log(error);
       // setErrorMessage(error.request.response);
       navigate("/anmalanmisslyckad/");
-    })
+    }
   }
 
   const isValid = () => {
     const valid = (
-        formData.name !== "" &&
-        formData.email !== "" &&
+        formData.name !== null &&
+        formData.email !== null &&
         checkData.foto &&
         checkData.gdpr
     )
@@ -214,14 +208,6 @@ const RegForm = () => {
       <input type="allergies" className="form-control" id="allergies"
         name="allergies" value={formData.allergies} onChange={handleChange} />
     </div>
-    {/* Buss */}
-    {/* <div className="form-check mb-3">
-      <input className="form-check-input" type="checkbox" defaultChecked={formData.buss} value={formData.buss}
-        id="buss" name="buss" onChange={handleCheckChange} />
-      <label className="form-check-label" htmlFor="buss">
-        Jag vill ha busstransport från banketten till efterfesten på Urdsgjallar
-      </label>
-    </div> */}
     {/* Comment */}
     <div className="mb-3">
       <label htmlFor="comment" className="form-label">Kommentarer</label>

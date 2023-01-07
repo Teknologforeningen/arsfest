@@ -18,18 +18,17 @@ const RegList = () => {
   return (
     <>
     <h2 className="page-content-title">Deltagare</h2>
-      <ol className="reg-ol">
-        {participants.normalParticipants.map((participant, index) =>
-          <li key={index}>{participant}</li>
-        )}
-      </ol>
-      <h2 className="page-content-title">Reservlista (Observera att dessa inte garanterar en plats på årsfesten):</h2>
-      <ol className="reg-ol">
-        {participants.reservParticipants.map((participant, index) =>
-          <li key={index}>{participant}</li>
-        )}
-      </ol>
-
+    <ol className="reg-ol">
+      {participants.normalParticipants.map((participant, index) =>
+        <li key={index}>{participant}</li>
+      )}
+    </ol>
+    <h2 className="page-content-title">Reservlista (Observera att dessa inte garanterar en plats på årsfesten):</h2>
+    <ol className="reg-ol">
+      {participants.reservParticipants.map((participant, index) =>
+        <li key={index}>{participant}</li>
+      )}
+    </ol>
     </>
   )
 }

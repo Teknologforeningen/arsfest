@@ -8,7 +8,8 @@ if (!process.env.GATSBY_PROD){
 }
 
 export const createParticipant = async (participant) => {
-  const response = await axios.post({ ...participant })
+  const response = await axios.post(`${baseUrl}/participant`, { ...participant })
+  return response.data
 }
 
 export const getParticipants = async () => {
@@ -17,5 +18,6 @@ export const getParticipants = async () => {
 }
 
 export const getRegStatus = async () => {
-
+  const response = await axios.get(`${baseUrl}/regstatus`)
+  return response.data
 }
