@@ -6,5 +6,7 @@ module.exports = {
     title: `TF Årsfest`,
     siteUrl: `https://arsfest.tf.fi`,
   },
-  plugins: [],
+  plugins: [
+    'gatsby-plugin-postcss'
+  ],
 }

@@ -6,7 +6,7 @@ const Fotoinfo = () => {
   return (
   <>
   <div className="center-page">
-    <Nav />
+    <Nav activePage='/fotoinfo'/>
     <MobileNav />
     <div className="page-content">
       <div className="page-content-container">

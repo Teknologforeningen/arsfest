@@ -7,7 +7,7 @@ const Anmalan = () => {
   return (
     <>
     <div className="center-page">
-      <Nav />
+      <Nav activePage='/anmalan'/>
       <MobileNav />
       <div className="page-content">
         <div className="page-content-container"> 

@@ -6,7 +6,7 @@ import { getErrorMessage } from "../ErrorMessage";
 const AnmalanMisslyckad = () => {
   return (
     <div className="center-page">
-      <Nav />
+      <Nav activePage='/anmalanmisslyckad'/>
       <MobileNav />
   
       <div className="page-content">

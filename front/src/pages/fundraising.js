@@ -6,7 +6,7 @@ const Fundraising = () => {
   return (
   <>
   <div className="center-page">
-    <Nav />
+    <Nav activePage='/fundraising'/>
     <MobileNav />
     <div className="page-content">
       <div className="page-content-container"> 

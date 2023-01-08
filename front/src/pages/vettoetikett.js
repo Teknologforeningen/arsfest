@@ -6,7 +6,7 @@ const Vettoetikett = () => {
   return (
   <>
   <div className="center-page">
-    <Nav />
+    <Nav activePage='/vettoetikett'/>
     <MobileNav />
     <div className="page-content">
       <div className="page-content-container"> 

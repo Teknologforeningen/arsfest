@@ -5,7 +5,7 @@ import Nav from "../components/Nav";
 const AnmalanSuccee = () => {
   return (
     <div className="center-page">
-      <Nav />
+      <Nav activePage='/anmalansuccee'/>
       <MobileNav />
   
       <div className="page-content">

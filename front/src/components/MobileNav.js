@@ -10,11 +10,11 @@ const MobileNav = () => {
     <>
     <div className="mobile-header">
       <img id="navMenuIcon" src={menu} className="menu" onClick={() => setShowMobile(!showMobile)}></img>
-      <a href="/">
+      {/* <a href="/">
         <h1 className="mobile-nav-header">
           TF 150
         </h1>
-      </a>
+      </a> */}
     </div>
     {showMobile &&
     <div id="mobileNav" className="mobile-nav-container">
