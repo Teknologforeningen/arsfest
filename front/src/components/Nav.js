@@ -12,7 +12,6 @@ const pages = [
 
 const Nav = ({ activePage }) => {
   const renderPage = (page) => {
-    console.log(activePage, page.href)
     return (
       <li key={page.href}>
         {activePage === page.href ? 

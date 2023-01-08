@@ -1,9 +1,6 @@
 import React from "react";
-import axios from "axios";
 import { useState, useEffect } from "react";
-import { navigate } from "gatsby"
 import { createParticipant, getRegStatus } from '../services/participants'
-import { setErrorMessage } from "../ErrorMessage";
 
 const InvitedRegFull = () => {
   return (
@@ -27,18 +24,62 @@ const RegClosed = () => {
     </p>
     </>
   )
-}  
+}
+
+const LoadingPage = () => {
+  return (
+    <div className="center-container">
+      <div className="spinner-border text-light" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  )
+}
+
+const RegResponse = ({ regResponse }) => {
+  if (regResponse.type === 'success') {
+    return (
+      <>
+      {regResponse.message === 'full' ?
+        <div>
+          <h2 className="page-content-title">Tack för din anmälan till TFs 150:nde årsfest!</h2>
+          <br />
+          <h2 className="page-content-list">Din anmälan har tagits emot och Ni har placerats på reservlistan.</h2>
+          <br />
+          <p className="page-content-list">Vi fyller på lediga platser till årsfesten från reservlistan i den ordning som anmälningarna gjorts.</p>
+          <p className="page-content-list">Ni blir kontaktade via epost ifall Ni rymms med på årsfesten.</p>
+        </div>
+      :
+        <div>
+          <h2 className="page-content-title">Välkommen på TFs 150:nde årsfest!</h2>
+          <br />
+          <h2 className="page-content-list">Din anmälan har tagits emot.</h2>
+          <br />
+          <p className="page-content-list">Observera att anmälan går att avboka tills 14.2, varefter den blir bindande.</p>
+        </div>
+      }
+      </>
+    )
+  }
+
+  return (
+    <div>
+      <h2 className="page-content-title">Något gick fel när din anmälan behandlades</h2>
+      <p className="page-content-list">{regResponse.message}</p>
+    </div>
+  )
+}
   
 const RegForm = () => {
   const [formData, setFormData] = useState({
-    name: null,
-    email: null,
-    avec: null,
-    seating: null,
+    name: '',
+    email: '',
+    avec: '',
+    seating: '',
     menu: "Fisk",
-    allergies: null,
-    representing: null,
-    comment: null,
+    allergies: '',
+    representing: '',
+    comment: '',
     price: 100,
     sillis: false,
     solenn: false,
@@ -55,6 +96,10 @@ const RegForm = () => {
     invitedOpen: true,
     normalOpen: true
   });
+  const [regResponse, setRegResponse] = useState({
+    message: null,
+    type: null
+  })
 
   useEffect(() => {
   const fetchData = async () => {
@@ -85,27 +130,34 @@ const RegForm = () => {
     setFormSending(true);
     try {
       const response = await createParticipant(formData)
-      if (response.data === 'full') {
-        navigate("/anmalansucceereserv/");
-      } else {
-        navigate("/anmalansuccee/");
-      }  
+      setRegResponse({ type: 'success', message: response });
+      setFormSending(false);
     } catch (error) {
-      console.log(error);
-      // setErrorMessage(error.request.response);
-      navigate("/anmalanmisslyckad/");
+      setRegResponse({ type: 'error', message: error.message });
     }
   }
 
   const isValid = () => {
     const valid = (
-        formData.name !== null &&
-        formData.email !== null &&
+        formData.name !== '' &&
+        formData.email !== '' &&
         checkData.foto &&
         checkData.gdpr
     )
     return valid;
   }
+    
+  if (!regStatus.invitedOpen && !regStatus.normalOpen)
+    return <RegClosed />;
+
+  if (regStatus.isFull && regStatus.invitedOpen)
+    return <InvitedRegFull />;
+
+  if (regResponse.type)
+    return <RegResponse regResponse={regResponse}/>
+
+  if (formSending)
+    return <LoadingPage />
   
   const labelClass = 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'
   const textInputClass = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
@@ -113,17 +165,9 @@ const RegForm = () => {
   const checkboxInputClass = 'w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800'
   const submitButtonClass = 'px-8 py-3 text-white bg-blue-600 rounded focus:outline-none disabled:opacity-25'
   const formSelectClass = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-  
-  if (!regStatus.invitedOpen && !regStatus.normalOpen)
-    return <RegClosed />;
-
-  if (regStatus.isFull && regStatus.invitedOpen)
-    return <InvitedRegFull />;
 
   return (
-    <>
-    {!formSending?
-    <div class="grid gap-6 mb-6 md:grid-cols-1">
+    <div className="grid gap-6 mb-6 md:grid-cols-1">
     {/* Registration full */}
     {regStatus.isFull && regStatus.normalOpen &&
       <p className="page-content-text">
@@ -259,14 +303,6 @@ const RegForm = () => {
         
       </div>
     </div>
-    :
-    <div className="center-container">
-        <div className="spinner-border text-light" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div>
-    </div>
-    }
-    </>
   )
 }
 

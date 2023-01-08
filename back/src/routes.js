@@ -1,9 +1,9 @@
 const invitedRegOpens = new Date('31 January 2022 12:00');
-const invitedRegCloses = new Date('7 February 2023 00:00');
+const invitedRegCloses = new Date('7 February 2022 00:00');
 const invitedLimit = 550;
 
 const normalRegOpens = new Date('7 February 2022 12:00');
-const normalRegCloses = new Date('15 February 2022 00:00');
+const normalRegCloses = new Date('15 February 2023 00:00');
 const normalLimit = 665;
 
 const invitedRegOpen = () => {
@@ -18,11 +18,17 @@ const normalRegOpen = () => {
 
 const regFull = async (client) => {
   const timeNow = new Date;
-  const { rows } = await client.query(
-    'SELECT COUNT(*) FROM participant'
-  );
-  const participantLimit = timeNow < normalRegOpens ? invitedLimit : normalLimit;
-  return rows.count >= participantLimit;
+  try {
+    const { rows } = await client.query(
+      'SELECT COUNT(*) FROM participant'
+    );
+    const participantLimit = timeNow < normalRegOpens ? invitedLimit : normalLimit;
+    return parseInt(rows[0].count) >= participantLimit;  
+  }
+  catch (error) {
+    console.log(error);
+    return true;
+  }
 };
 
 const participantSchema = {
@@ -99,7 +105,8 @@ const regRoutes = async (fastify) => {
   fastify.post('/api/participant', { schema: participantSchema }, async (req, res) => {
     const client = await fastify.pg.connect();
     try {
-      if (invitedRegOpen() && await regFull(client)) {
+      const isFull = await regFull(client)
+      if (invitedRegOpen() && isFull) {
         res.status(409).send('Kvoten för inbjudna gäster är fylld');
         return;
       }
@@ -110,7 +117,6 @@ const regRoutes = async (fastify) => {
       }
 
       const participant = req.body;
-      console.log(participant)
       await client.query(
         `INSERT INTO participant(
           name,
@@ -143,7 +149,8 @@ const regRoutes = async (fastify) => {
           '${participant.visible}'
         )`
       );
-      res.code(201).send({ participant });
+      const message = isFull ? 'full' : 'Registration successful';
+      res.status(201).send(message);
     } catch (error) {
       console.log(error);
       res.code(400).send(`Error creating participant: ${error.message}`);
