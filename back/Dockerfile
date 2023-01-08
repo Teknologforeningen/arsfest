@@ -1,4 +1,5 @@
 FROM node:19-alpine
+ENV TZ=Europe/Helsinki
 
 WORKDIR /opt/app
 COPY . ./
