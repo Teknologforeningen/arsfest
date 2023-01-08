@@ -1,13 +1,11 @@
 import React from "react";
-import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
 
 const Fundraising = () => {
   return (
   <>
+  <Nav activePage='/fundraising'/>
   <div className="center-page">
-    <Nav activePage='/fundraising'/>
-    <MobileNav />
     <div className="page-content">
       <div className="page-content-container"> 
         <div className="page-content-center">

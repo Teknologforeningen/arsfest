@@ -1,13 +1,11 @@
 import React from "react";
-import MobileNav from "../components/MobileNav";
 import Nav from "../components/Nav";
 
 const Historik = () => {
   return (
     <>
+    <Nav activePage='/historik'/>
     <div className="center-page">
-      <Nav activePage='/historik'/>
-      <MobileNav />
       <div className="page-content">
         <div className="page-content-container">
           <div className="page-content-center">

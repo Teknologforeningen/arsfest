@@ -23,12 +23,16 @@ const RegList = () => {
         <li key={index}>{participant}</li>
       )}
     </ol>
+    {participants.reservParticipants.length > 0 &&
+    <>
     <h2 className="page-content-title">Reservlista (Observera att dessa inte garanterar en plats på årsfesten):</h2>
     <ol className="reg-ol">
       {participants.reservParticipants.map((participant, index) =>
         <li key={index}>{participant}</li>
       )}
     </ol>
+    </>
+    }
     </>
   )
 }

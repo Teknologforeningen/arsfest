@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .page-content {
-  padding: 2rem 5rem 2rem 0;
+  padding: 1rem 2rem 2rem 0;
   flex: 1;
   max-height: 100%;
   display: flex;
@@ -39,5 +39,6 @@
 
 .reg-ol {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-columns: repeat(auto-fill, 200px);
+  justify-content: center;
 }
