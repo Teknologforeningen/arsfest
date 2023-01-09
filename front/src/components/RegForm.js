@@ -159,12 +159,12 @@ const RegForm = () => {
   if (formSending)
     return <LoadingPage />
   
-  const labelClass = 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-  const textInputClass = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-  const checkboxLabelClass = 'ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'
-  const checkboxInputClass = 'w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800'
+  const labelClass = 'block mb-2 text-sm font-medium text-gray-900'
+  const textInputClass = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+  const checkboxLabelClass = 'ml-2 text-sm font-medium text-gray-900 '
+  const checkboxInputClass = 'w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300'
   const submitButtonClass = 'px-8 py-3 text-white bg-blue-600 rounded focus:outline-none disabled:opacity-25'
-  const formSelectClass = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+  const formSelectClass = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
 
   return (
     <div className="grid gap-6 mb-6 md:grid-cols-1">
