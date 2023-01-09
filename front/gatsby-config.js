@@ -7,6 +7,12 @@ module.exports = {
     siteUrl: `https://arsfest.tf.fi`,
   },
   plugins: [
-    'gatsby-plugin-postcss'
+    'gatsby-plugin-postcss',
+    {
+      resolve: '@vtex/gatsby-plugin-nginx',
+      options: {
+        serverOptions:[['include', '/etc/nginx/api_nginx.conf']]
+      }
+    },
   ],
 }

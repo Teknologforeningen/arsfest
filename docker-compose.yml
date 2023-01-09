@@ -5,7 +5,7 @@ services:
     build:
       context: ./back
       dockerfile: "Dockerfile"
-    container_name: arsfest-api
+    container_name: arsfestapi
     restart: always
     environment:
       - DB_HOST=${DB_HOST:-arsfestdb}
@@ -25,7 +25,7 @@ services:
     build:
       context: ./front
       dockerfile: "Dockerfile"
-    container_name: arsfest-ui
+    container_name: arsfestui
     restart: always
     depends_on:
       - db
@@ -35,8 +35,6 @@ services:
     networks:
       - db
       - api
-    volumes:
-      - ./front/nginx.conf:/etc/nginx/nginx.conf:ro
 
   db:
     container_name: arsfestdb
