@@ -3,26 +3,20 @@
 @tailwind utilities;
 
 .page-content {
-  padding: 1rem 2rem 2rem 0;
+  padding: 1rem 0 0 0;
   flex: 1;
   max-height: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   overflow: auto;
   position: relative;
 }
 
-.page-content-container {
+.center-page {
+  padding: 1rem 2rem 2rem 0;
   flex: 1;
-  display: flex;
-  height: fit-content;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.page-content-center {
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -35,6 +29,11 @@
 .page-content-text {
   margin-top:0;
   padding-bottom: 1rem;
+}
+
+.page-content-list {
+  margin:0;
+  /*padding-left: 0.7rem;*/
 }
 
 .reg-ol {
