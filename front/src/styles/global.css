@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow: auto;
+  overflow: hidden;
   position: relative;
 }
 
@@ -33,7 +33,6 @@
 
 .page-content-list {
   margin:0;
-  /*padding-left: 0.7rem;*/
 }
 
 .reg-ol {

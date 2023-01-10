@@ -12,7 +12,9 @@ A development environment can be started with
 docker-compose -f docker-compose.dev up --build
 ```
 
-A production-ready version of the application can be started with
+To start a production environment, run
 ```
 docker-compose up --build
 ```
+
+The application can be accesse at [http://localhost:8000](http://localhost:8000)

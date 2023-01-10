@@ -68,7 +68,7 @@ ENV GATSBY_PROD='true'
 
 RUN npm install
 RUN npm run build
-RUN sed -i -e 's/\$PORT/3000/' public/nginx.conf
+RUN sed -i -e 's/\$PORT/8000/' public/nginx.conf
 
 
 FROM nginx:${version}-alpine
