@@ -1,0 +1,21 @@
+POST http://localhost:5000/api/participant
+Content-Type: application/json
+
+{
+  "name": "namee",
+  "email": "address@gmail.com",
+  "price": 1000,
+  "avec": "test avec",
+  "seating": "Min kompis",
+  "sillis": true,
+  "solenn": true,
+  "representing": "tf",
+  "alcohol": true,
+  "menu": "Stora ja",
+  "allergies": "Nej",
+  "comment": "aa",
+  "visible": true
+}
+
+###
+GET http://localhost:5000/api/participants

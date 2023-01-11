@@ -76,7 +76,7 @@ const regRoutes = async (fastify) => {
       res.send({ isFull, invitedOpen, normalOpen });
     } catch (error) {
       console.log(error);
-      res.code(400).send(`Error fetching random url: ${error.message}`);
+      res.code(400).send('Error fetching registration status');
     } finally {
       client.release();
     }
@@ -95,7 +95,7 @@ const regRoutes = async (fastify) => {
       res.send({ normalParticipants, reservParticipants });
     } catch (error) {
       console.log(error);
-      res.code(400).send(`Error fetching participants: ${error.message}`);
+      res.code(400).send('Error fetching participants');
     } finally {
       client.release();
     }
@@ -134,26 +134,28 @@ const regRoutes = async (fastify) => {
           visible
         ) 
          VALUES (
-          '${participant.name}',
-          '${participant.email}',
-          '${participant.avec}',
-          '${participant.seating}',
-          '${participant.menu}',
-          '${participant.allergies}',
-          '${participant.representing}',
-          '${participant.comment}',
-          '${participant.price}',
-          '${participant.sillis}',
-          '${participant.solenn}',
-          '${participant.alcohol}',
-          '${participant.visible}'
-        )`
+          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
+        )`, [
+          participant.name,
+          participant.email,
+          participant.avec,
+          participant.seating,
+          participant.menu,
+          participant.allergies,
+          participant.representing,
+          participant.comment,
+          participant.price,
+          participant.sillis,
+          participant.solenn,
+          participant.alcohol,
+          participant.visible
+        ]
       );
       const message = isFull ? 'full' : 'Registration successful';
       res.status(201).send(message);
     } catch (error) {
       console.log(error);
-      res.code(400).send(`Error creating participant: ${error.message}`);
+      res.code(400).send('Error creating participant');
     } finally {
       client.release();
     }
