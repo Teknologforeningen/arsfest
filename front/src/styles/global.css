@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* html {
+  background-color: #011b17;
+} */
+
+html {
+  background-image: url("./green.jpg");
+}
+
 .page-content {
   padding: 1rem 0 0 0;
   flex: 1;
@@ -11,7 +19,9 @@
   flex-direction: column;
   overflow: hidden;
   position: relative;
+  color: #ddcdaa;
 }
+
 
 .center-page {
   padding: 1rem 2rem 2rem 0;
