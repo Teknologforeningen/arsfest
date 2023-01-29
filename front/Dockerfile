@@ -63,10 +63,12 @@ RUN apk add --update --no-cache build-base git pcre-dev openssl-dev zlib-dev lin
 FROM node:19-alpine AS gatsby-builder
 
 WORKDIR /arsfest
+
+COPY package.json .
+RUN npm install
+
 COPY . .
 ENV GATSBY_PROD='true'
-
-RUN npm install
 RUN npm run build
 RUN sed -i -e 's/\$PORT/8000/' public/nginx.conf
 

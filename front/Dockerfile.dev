@@ -1,10 +1,10 @@
 FROM node:19-alpine
 
 WORKDIR /opt/app
-COPY . .
-# ENV GATSBY_DOCKER='true'
-
+COPY package.json .
 RUN npm install
+
+COPY . .
 
 EXPOSE 8000
 
