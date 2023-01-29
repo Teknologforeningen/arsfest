@@ -11,6 +11,10 @@ body {
   background-attachment: fixed;
 }
 
+/* body {
+  background-image: url("./green.jpg");
+} */
+
 .page-content {
   padding: 1rem 0 0 0;
   flex: 1;
@@ -23,27 +27,11 @@ body {
   color: #ddcdaa;
 }
 
-
 .center-page {
   padding: 1rem 2rem 2rem 0;
   flex: 1;
   width: 90%;
   margin: 0 auto;
-}
-
-.page-content-title {
-  font-size: 20px;
-  font-weight: 800;
-  padding-bottom: 1%;
-}
-
-.page-content-text {
-  margin-top:0;
-  padding-bottom: 1rem;
-}
-
-.page-content-list {
-  margin:0;
 }
 
 .reg-ol {

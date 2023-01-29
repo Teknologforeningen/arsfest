@@ -5,8 +5,8 @@ import { createParticipant, getRegStatus } from '../services/participants'
 const InvitedRegFull = () => {
   return (
     <>
-    <h2 className="page-content-title">Deltagaranmälan</h2>
-    <p className="page-content-text">
+    <h2 className="text-3xl mb-4">Deltagaranmälan</h2>
+    <p className="mb-3">
       Kvoten för inbjudna gäster är fylld. 
       Det går ännu att anmäla sig med den öppna anmälan som öppnar 20.2 kl 12.
     </p>
@@ -17,8 +17,8 @@ const InvitedRegFull = () => {
 const RegClosed = () => {
   return (
     <>
-    <h2 className="page-content-title">Deltagaranmälan</h2>
-    <p className="page-content-text">
+    <h2 className="text-3xl mb-4">Deltagaranmälan</h2>
+    <p className="mb-3">
       Anmälan för inbjudna gäster öppnar på denna sida den 9 februari klockan 12 och stänger 16 februari.
       Den öppna anmälan för alla TFare samt deras avecer öppnar den 20 februari klockan 12.
       Vänligen observera att avecer bör fylla i sin egen anmälan.
@@ -47,19 +47,15 @@ const RegResponse = ({ regResponse }) => {
       <>
       {regResponse.message === 'full' ?
         <div>
-          <h2 className="page-content-title">Tack för din anmälan till TFs 151:a årsfest!</h2>
-          <br />
-          <p>Din anmälan har tagits emot och Ni har placerats på reservlistan.</p>
-          <br />
+          <h2 className="text-3xl mb-4">Tack för din anmälan till TFs 151:a årsfest!</h2>
+          <p className="mb-3">Din anmälan har tagits emot och Ni har placerats på reservlistan.</p>
           <p>Vi fyller på lediga platser till årsfesten från reservlistan i den ordning som anmälningarna gjorts.</p>
           <p>Ni blir kontaktade via epost ifall Ni rymms med på årsfesten.</p>
         </div>
       :
         <div>
-          <h2 className="page-content-title">Välkommen på TFs 151:a årsfest!</h2>
-          <br />
-          <p>Din anmälan har tagits emot.</p>
-          <br />
+          <h2 className="text-3xl mb-4">Välkommen på TFs 151:a årsfest!</h2>
+          <p className="mb-3">Din anmälan har tagits emot.</p>
           <p>Observera att anmälan går att avboka tills 26.2, varefter den blir bindande.</p>
         </div>
       }
@@ -69,7 +65,7 @@ const RegResponse = ({ regResponse }) => {
 
   return (
     <div>
-      <h2 className="page-content-title">Något gick fel när din anmälan behandlades</h2>
+      <h2 className="text-3xl mb-4">Något gick fel när din anmälan behandlades</h2>
       <p>{regResponse.message}</p>
     </div>
   )
@@ -180,7 +176,7 @@ const RegForm = () => {
     <div className="grid gap-6 mb-6 md:grid-cols-1">
     {/* Registration full */}
     {regStatus.isFull && regStatus.normalOpen &&
-      <p className="page-content-text">
+      <p className="mb-3">
         Alla platser till årsfesten är reserverade, men det går ännu att anmäla sig till en reservplats.
       </p>            
     }
