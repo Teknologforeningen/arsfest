@@ -12,6 +12,7 @@ const Fotoinfo = () => {
           layout="fixed"
           height={150}
           placeholder="blurred"
+          alt="Djur"
         />
       </div>
       <Nav activePage='/fotoinfo'/>

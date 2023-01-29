@@ -12,6 +12,7 @@ const Home = () => {
           layout="fixed"
           height={150}
           placeholder="blurred"
+          alt="Djur"
         />
       </div>
       <Nav activePage='/'/>
@@ -35,22 +36,24 @@ const Home = () => {
         <div className="mb-3">
         <h3 className="text-xl">Priser</h3>
           <table>
-            <tr>
-              <td>Supékort, studerande</td>
-              <td>85€</td>
-            </tr>
-            <tr>
-              <td>Supékort, övriga</td>
-              <td>95€</td>
-            </tr>
-            <tr>
-              <td>Understödspris</td>
-              <td>151€</td>
-            </tr>
-            <tr>
-              <td>Sillfrukost förköp/vid dörren &nbsp;&nbsp;&nbsp;</td>
-              <td>16/18€</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Supékort, studerande</td>
+                <td>85€</td>
+              </tr>
+              <tr>
+                <td>Supékort, övriga</td>
+                <td>95€</td>
+              </tr>
+              <tr>
+                <td>Understödspris</td>
+                <td>151€</td>
+              </tr>
+              <tr>
+                <td>Sillfrukost förköp/vid dörren &nbsp;&nbsp;&nbsp;</td>
+                <td>16/18€</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <p className="mb-3">
@@ -58,31 +61,34 @@ const Home = () => {
         </p>
         <div className="mb-3">
           <h3 className="text-xl">Tidtabell</h3>
-          <p>
-            <b>18.3.2022</b>
-          </p>
           <table>
-            <tr>
-              <td>16:00 &nbsp;&nbsp;&nbsp;&nbsp;</td>
-              <td>Solenn akt, Aalto Universitetets Kandidatcenters U-vinge, Otsvängen 1</td>
-            </tr>
-            <tr>
-              <td>17:00 </td>
-              <td>Cocktail, Aalto Universitetets Kandidatcenters U-vinge, Otsvängen 1</td>
-            </tr>
-            <tr>
-              <td>18:00 </td>
-              <td>Bankett, Urdsgjallar, Otsvängen 22</td>
-            </tr>
+            <thead><tr><td><b>18.3.2022</b></td></tr></thead>
+            <tbody>
+              <tr>
+                <td>16:00</td>
+                <td>Solenn akt, Aalto Universitetets Kandidatcenters U-vinge, Otsvängen 1</td>
+              </tr>
+              <tr>
+                <td>17:00 </td>
+                <td>Cocktail, Aalto Universitetets Kandidatcenters U-vinge, Otsvängen 1</td>
+              </tr>
+              <tr>
+                <td>18:00 </td>
+                <td>Bankett, Urdsgjallar, Otsvängen 22</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div className="mb-3">
-          <p>
-            <b>19.3.2022</b>
-          </p>
-          <p>
-            12:00 &nbsp;&nbsp;&nbsp;&nbsp; Sillfrukost, Urdsgjallar, Otsvängen 22
-          </p>
+        <table>
+          <thead><tr><td><b>19.3.2022</b></td></tr></thead>
+            <tbody>
+              <tr>
+                <td>12:00</td>
+                <td>Sillfrukost, Urdsgjallar, Otsvängen 22</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <p className="mb-3">
           <br />Vid frågor, kontakta årsfestmarskalkerna på <a href="mailto: arsfest@tf.fi">arsfest@tf.fi</a>
