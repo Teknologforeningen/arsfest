@@ -7,63 +7,67 @@ const Home = () => {
     <div className="center-page">
       <Nav activePage='/'/>
       <div className="page-content">
-        <h2 className="page-content-title"><b>Välkommen till TFs 150:nde årsfest</b></h2>
+        <h2 className="page-content-title"><b>Välkommen till TFs 151:a årsfest</b></h2>
         <p className="page-content-text">
-          Teknologföreningen firar sina 150 verksamhetsår med en makalös jubileumsårsfest lördagen den 19 mars 2022. Vi önskar alla inbjudna gäster, TFare samt avecer hjärtligt välkomna och fira med oss!
+          Teknologföreningen firar sina 151 verksamhetsår med en makalös årsfest lördagen den 18 mars 2022. Vi önskar alla <b>inbjudna gäster, TFare samt avecer</b> hjärtligt välkomna att fira med oss!
         </p>
         <p className="page-content-text">
-          Festligheterna inleds med solenn akt på Tekniska Muséet i Gammelstaden, där man har möjlighet att framföra hälsningar till jubilaren. Därefter fortsätter festligheterna med cocktail och bankett i festutrymmet Wirtaamo. Efter banketten följer efterfest i nationshuset Urdsgjallar i Otnäs, dit det ordnas busstransport. Sillfrukost ordnas på söndagen den 20 mars i Urdsgjallar.
+          Festligheterna inleds med solenn akt i Aalto-universitetets Kandidatcenters U-vinge, där det finns möjlighet att framföra hälsningar till jubilaren. Cocktail-tillfället ordnas i samma utrymme. Därefter fortsätter festligheterna med bankett på Urdsgjallar i Otnäs. Efter banketten följer efterfest i nationshuset Urdsgjallar i Otnäs. Sillfrukost ordnas söndagen den 19 mars i Urdsgjallar.
         </p>
         <p className="page-content-text">
           Klädsel: Högtidsdräkt med akademiska hederstecken.
         </p>
         <p className="page-content-text">
-          Anmälan för inbjudna gäster samt deras avecer öppnar den 31 januari klockan 12. Den öppna anmälan för alla TFare samt deras avecer öppnar den 7 februari klockan 12. Vänligen observera att avecer bör fylla i sin egen anmälan.
+          Anmälan för inbjudna gäster öppnar den 9 februari klockan 12 och stänger 16 februari. Den öppna anmälan för alla TFare samt deras avecer öppnar den 20 februari klockan 12. Vänligen observera att avecer bör fylla i sin egen anmälan.
         </p>
         <p className="page-content-text">
-          Notera att anmälan går att avboka tills 14.2, varefter den blir bindande. För att kunna njuta av en så säker fest som möjligt kommer rådande restriktioner beaktas. Vänligen läs igenom <a href="./coronainfo">Coronainfon</a> för mer information.
+          Notera att anmälan går att avboka tills 26.2, varefter den blir bindande. 
         </p>
-        <p className="page-content-list">
-          <b>Priser</b><br/><br/>
-        </p>
-        <p className="page-content-list">
-          Supékort, studerande            100 €
-        </p>
-        <p className="page-content-list">
-          Supékort, övriga            120 €
-        </p>
-        <p className="page-content-list">
-          Understödspris            300 €
-        </p>
-        <p className="page-content-list">
-          Sillfrukost förköp/vid dörren         12 € / 14 € <br/><br/>
-        </p>
+        <div className="page-content-text">
+          <b>Priser</b><br/>
+          <p>
+            Supékort, studerande 85€
+          </p>
+          <p>
+            Supékort, övriga 95€
+          </p>
+          <p>
+            Understödspris 151€
+          </p>
+          <p>
+            Sillfrukost förköp/vid dörren 16/18€
+          </p>
+        </div>
         <p className="page-content-text">
           Teknologföreningen bjuder på ett supékort ifall det nämns i inbjudan.
         </p>
-        <p className="page-content-list">
-          <b>Tidtabell</b><br/><br/>
-        </p>
-        <p className="page-content-list">
-          <b>19.3.2022</b>
-        </p>
-        <p className="page-content-list">
-          15:00 &nbsp;&nbsp;&nbsp;&nbsp; Solenn akt, Tekniska Muséet, Viksvägen 1
-        </p>
-        <p className="page-content-list">
-          17:00 &nbsp;&nbsp;&nbsp;&nbsp; Cocktail, Wirtaamo, Katarina av Sachsens gata 9
-        </p>
-        <p className="page-content-list">
-          18:00 &nbsp;&nbsp;&nbsp;&nbsp; Bankett, Wirtaamo, Katarina av Sachsens gata 9<br/><br/>
-        </p>
-        <p className="page-content-list">
-          <b>20.3.2022</b>
-        </p>
-        <p className="page-content-list">
-          12:00 &nbsp;&nbsp;&nbsp;&nbsp; Sillfrukost, Urdsgjallar, Otsvängen 22<br/><br/>
-        </p>
+        <div className="page-content-text">
+          <p>
+            <b>Tidtabell</b><br/>
+          </p>
+          <p>
+            <b>18.3.2022</b>
+          </p>
+          <p>
+            16:00 &nbsp;&nbsp;&nbsp;&nbsp; Solenn akt, Aalto Universitetets Kandidatcenters U-vinge, Otsvängen 1
+          </p>
+          <p>
+            17:00 &nbsp;&nbsp;&nbsp;&nbsp; Cocktail, Aalto Universitetets Kandidatcenters U-vinge, Otsvängen 1
+          </p>
+          <p>
+            18:00 &nbsp;&nbsp;&nbsp;&nbsp; Bankett, Urdsgjallar, Otsvängen 22
+          </p>
+        </div>
+        <div className="page-content-text">
+          <p>
+            <b>19.3.2022</b>
+          </p>
+          <p>
+            12:00 &nbsp;&nbsp;&nbsp;&nbsp; Sillfrukost, Urdsgjallar, Otsvängen 22
+          </p>
+        </div>
         <p className="page-content-text">
-          Vid frågor, kontakta årsfestmarskalkerna på <a href="mailto: arsfest@tf.fi">arsfest@tf.fi</a>
+          <br />Vid frågor, kontakta årsfestmarskalkerna på <a href="mailto: arsfest@tf.fi">arsfest@tf.fi</a>
         </p>
       </div>
     </div>

@@ -1,0 +1,26 @@
+POST http://localhost:8000/api/participant HTTP/1.1
+content-type: application/json
+
+{
+    "name": "mamm",
+    "email": "a@gmail.com",
+    "price": 1000,
+    "avec": "test avec",
+    "seating": "Min kompis",
+    "sillis": true,
+    "solenn": true,
+    "representing": "tf",
+    "alcohol": true,
+    "menu": "Fishk",
+    "allergies": "Nej",
+    "comment": "mby",
+    "visible": true
+}
+
+###
+GET http://localhost:8000/api/participants HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:8000/api/regstatus HTTP/1.1
+content-type: application/json

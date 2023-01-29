@@ -8,7 +8,7 @@ const InvitedRegFull = () => {
     <h2 className="page-content-title">Deltagaranmälan</h2>
     <p className="page-content-text">
       Kvoten för inbjudna gäster är fylld. 
-      Det går ännu att anmäla sig med den öppna anmälan som öppnar 7.2 kl 12.
+      Det går ännu att anmäla sig med den öppna anmälan som öppnar 20.2 kl 12.
     </p>
     </> 
   )
@@ -19,8 +19,9 @@ const RegClosed = () => {
     <>
     <h2 className="page-content-title">Deltagaranmälan</h2>
     <p className="page-content-text">
-      Anmälan för inbjudna gäster öppnar 31.1 kl 12 och stänger 6.2 kl 23:59. 
-      Den öppna anmälan öppnar 7.2 kl 12 och stänger 14.2 kl 23:59.
+      Anmälan för inbjudna gäster öppnar på denna sida den 9 februari klockan 12 och stänger 16 februari.
+      Den öppna anmälan för alla TFare samt deras avecer öppnar den 20 februari klockan 12.
+      Vänligen observera att avecer bör fylla i sin egen anmälan.
     </p>
     </>
   )
@@ -46,20 +47,20 @@ const RegResponse = ({ regResponse }) => {
       <>
       {regResponse.message === 'full' ?
         <div>
-          <h2 className="page-content-title">Tack för din anmälan till TFs 150:nde årsfest!</h2>
+          <h2 className="page-content-title">Tack för din anmälan till TFs 151:a årsfest!</h2>
           <br />
-          <h2 className="page-content-list">Din anmälan har tagits emot och Ni har placerats på reservlistan.</h2>
+          <p>Din anmälan har tagits emot och Ni har placerats på reservlistan.</p>
           <br />
-          <p className="page-content-list">Vi fyller på lediga platser till årsfesten från reservlistan i den ordning som anmälningarna gjorts.</p>
-          <p className="page-content-list">Ni blir kontaktade via epost ifall Ni rymms med på årsfesten.</p>
+          <p>Vi fyller på lediga platser till årsfesten från reservlistan i den ordning som anmälningarna gjorts.</p>
+          <p>Ni blir kontaktade via epost ifall Ni rymms med på årsfesten.</p>
         </div>
       :
         <div>
-          <h2 className="page-content-title">Välkommen på TFs 150:nde årsfest!</h2>
+          <h2 className="page-content-title">Välkommen på TFs 151:a årsfest!</h2>
           <br />
-          <h2 className="page-content-list">Din anmälan har tagits emot.</h2>
+          <p>Din anmälan har tagits emot.</p>
           <br />
-          <p className="page-content-list">Observera att anmälan går att avboka tills 14.2, varefter den blir bindande.</p>
+          <p>Observera att anmälan går att avboka tills 26.2, varefter den blir bindande.</p>
         </div>
       }
       </>
@@ -69,7 +70,7 @@ const RegResponse = ({ regResponse }) => {
   return (
     <div>
       <h2 className="page-content-title">Något gick fel när din anmälan behandlades</h2>
-      <p className="page-content-list">{regResponse.message}</p>
+      <p>{regResponse.message}</p>
     </div>
   )
 }
@@ -84,7 +85,7 @@ const RegForm = () => {
     allergies: '',
     representing: '',
     comment: '',
-    price: 100,
+    price: 85,
     sillis: false,
     solenn: false,
     alcohol: false,
@@ -228,46 +229,6 @@ const RegForm = () => {
           </li>
         </ul>        
       </div>
-      {/* Avec */}
-      <div className="mb-3">
-        <label htmlFor="avec" className={labelClass}>
-          Namn på avec (lämna tomt om du inte deltar med en avec, observera att också avecer ska skicka in personlig deltagaranmälan)
-        </label>
-        <input type="avec" className={textInputClass} id="avec"
-          name="avec" value={formData.avec} onChange={handleChange} />
-      </div>
-      {/* Seating */}
-      <div className="mb-3">
-        <label htmlFor="seating" className={labelClass}>
-          Önskat bordssällskap (namn eller gruppnamn)
-        </label>
-        <input type="seating" className={textInputClass} id="seating"
-          name="seating" value={formData.seating} onChange={handleChange} />
-      </div>
-      {/* Sillis */}
-      <div className="form-check mb-3">
-        <input className={checkboxInputClass} type="checkbox" value={formData.sillis} defaultChecked={formData.sillis}
-        id="sillis" name="sillis" onChange={handleCheckChange} />
-        <label className={checkboxLabelClass} htmlFor="sillis">
-        Jag vill anmäla mig till sillisen i samband med deltagaranmälan (12€)
-        </label>
-      </div>
-      {/* Solenn */}
-      <div className="form-check mb-3">
-        <input className={checkboxInputClass} type="checkbox" value={formData.solenn} defaultChecked={formData.solenn}
-        id="solenn" name="solenn" onChange={handleCheckChange} />
-        <label className={checkboxLabelClass} htmlFor="solenn">
-          Jag vill delta i den solenna akten för att framföra en hälsning åt jubilaren
-        </label>
-      </div>
-      {/* Representing */}
-      <div className="mb-3">
-        <label htmlFor="representing" className={labelClass}>
-          Förening eller instans som du representerar
-        </label>
-        <input type="representing" className={textInputClass} id="representing"
-          name="representing" value={formData.representing} onChange={handleChange} />
-      </div>
       {/* Alcohol */}
       <div className="form-check mb-3">
         <input className={checkboxInputClass} type="checkbox" defaultChecked={formData.alcohol} value={formData.alcohol}
@@ -306,9 +267,50 @@ const RegForm = () => {
         <input type="allergies" className={textInputClass} id="allergies"
           name="allergies" value={formData.allergies} onChange={handleChange} />
       </div>
+      {/* Avec */}
+      <div className="mb-3">
+        <label htmlFor="avec" className={labelClass}>
+          Namn på avec (lämna tomt om du inte deltar med en avec, observera att också avecer ska skicka in personlig deltagaranmälan)
+        </label>
+        <input type="avec" className={textInputClass} id="avec"
+          name="avec" value={formData.avec} onChange={handleChange} />
+      </div>
+      {/* Seating */}
+      <div className="mb-3">
+        <label htmlFor="seating" className={labelClass}>
+          Önskat bordssällskap (namn eller gruppnamn)
+        </label>
+        <input type="seating" className={textInputClass} id="seating"
+          name="seating" value={formData.seating} onChange={handleChange} />
+      </div>
+      {/* Sillis */}
+      <div className="form-check mb-3">
+        <input className={checkboxInputClass} type="checkbox" value={formData.sillis} defaultChecked={formData.sillis}
+        id="sillis" name="sillis" onChange={handleCheckChange} />
+        <label className={checkboxLabelClass} htmlFor="sillis">
+        Jag vill anmäla mig till sillisen i samband med deltagaranmälan (16€)
+        </label>
+      </div>
+      {/* Solenn */}
+      <div className="form-check mb-3">
+        <input className={checkboxInputClass} type="checkbox" value={formData.solenn} defaultChecked={formData.solenn}
+        id="solenn" name="solenn" onChange={handleCheckChange} />
+        <label className={checkboxLabelClass} htmlFor="solenn">
+          Jag vill delta i den solenna akten för att framföra en hälsning åt jubilaren
+        </label>
+      </div>
+      {/* Representing */}
+      <div className="mb-3">
+        <label htmlFor="representing" className={labelClass}>
+          Förening eller instans som du representerar
+        </label>
+        <input type="representing" className={textInputClass} id="representing"
+          name="representing" value={formData.representing} onChange={handleChange} />
+      </div>
+
       {/* Comment */}
       <div className="mb-3">
-        <label htmlFor="comment" className={labelClass}>Kommentarer</label>
+        <label htmlFor="comment" className={labelClass}>Övriga kommentarer till arrangörerna</label>
         <textarea rows={4} type="specialdieter" className={textInputClass} id="comment"
           name="comment" value={formData.comment} onChange={handleChange} />
       </div>

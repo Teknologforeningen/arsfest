@@ -5,8 +5,6 @@ const pages = [
   { href: '/anmalan', text: 'Anmälan' },
   { href: '/deltagare', text: 'Deltagare' },
   { href: '/fotoinfo', text: 'Fotoinfo' },
-  { href: '/fundraising', text: 'Fundraising' },
-  { href: '/historik', text: 'Historik' },
   { href: '/vettoetikett', text: 'Vett och etikett' }
 ]
 

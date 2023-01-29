@@ -8,7 +8,7 @@ const Fotoinfo = () => {
       <Nav activePage='/fotoinfo'/>
       <div className="page-content">
         <h2 className="page-content-title">Fotoinfo</h2>
-        <p className="content-list">
+        <p>
           Fotografer kommer att befinna sig på årsfesten
         </p>   
         <ul>
