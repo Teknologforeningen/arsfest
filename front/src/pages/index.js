@@ -19,7 +19,7 @@ const Home = () => {
       <div className="page-content">
         <h2 className="text-3xl mb-4"><b>Välkommen till TFs 151:a årsfest</b></h2>
         <p className="mb-3">
-          Teknologföreningen firar sina 151 verksamhetsår med en makalös årsfest lördagen den 18 mars 2022. Vi önskar alla <b>inbjudna gäster, TFare samt avecer</b> hjärtligt välkomna att fira med oss!
+          Teknologföreningen firar sina 151 verksamhetsår med en makalös årsfest lördagen den 18 mars 2023. Vi önskar alla <b>inbjudna gäster, TFare samt avecer</b> hjärtligt välkomna att fira med oss!
         </p>
         <p className="mb-3">
           Festligheterna inleds med solenn akt i Aalto-universitetets Kandidatcenters U-vinge, där det finns möjlighet att framföra hälsningar till jubilaren. Cocktail-tillfället ordnas i samma utrymme. Därefter fortsätter festligheterna med bankett på Urdsgjallar i Otnäs. Efter banketten följer efterfest i nationshuset Urdsgjallar i Otnäs. Sillfrukost ordnas söndagen den 19 mars i Urdsgjallar.
@@ -62,7 +62,7 @@ const Home = () => {
         <div className="mb-3">
           <h3 className="text-xl">Tidtabell</h3>
           <table>
-            <thead><tr><td><b>18.3.2022</b></td></tr></thead>
+            <thead><tr><td><b>18.3.2023</b></td></tr></thead>
             <tbody className="align-top">
               <tr>
                 <td>16:00</td>
@@ -81,7 +81,7 @@ const Home = () => {
         </div>
         <div className="mb-3">
         <table>
-          <thead><tr><td><b>19.3.2022</b></td></tr></thead>
+          <thead><tr><td><b>19.3.2023</b></td></tr></thead>
             <tbody>
               <tr>
                 <td>12:00</td>
