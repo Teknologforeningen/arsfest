@@ -1,10 +1,18 @@
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/Nav";
 
 const Fotoinfo = () => {
   return (
     <>
     <div className="center-page">
+      <div className="grid place-items-center">
+        <StaticImage
+          src="../images/asset2.png" 
+          layout="fixed"
+          height={150}
+        />
+      </div>
       <Nav activePage='/fotoinfo'/>
       <div className="page-content">
         <h2 className="text-3xl mb-4">Fotoinfo</h2>

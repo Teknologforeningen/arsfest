@@ -40,8 +40,8 @@ services:
       - api
     volumes:
       - type: bind
-        source: ./front
-        target: /opt/app
+        source: ./front/src
+        target: /opt/app/src
 
   db:
     container_name: arsfestdb

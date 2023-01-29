@@ -1,10 +1,18 @@
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/Nav";
 
 const Vettoetikett = () => {
   return (
     <>
     <div className="center-page">
+      <div className="grid place-items-center">
+        <StaticImage
+          src="../images/asset5.png" 
+          layout="fixed"
+          height={150}
+        />
+      </div>
       <Nav activePage='/vettoetikett'/>
       <div className="page-content">
         <h1 className="text-3xl mb-4">Vett och etikett</h1>
