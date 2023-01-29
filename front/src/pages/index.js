@@ -11,6 +11,7 @@ const Home = () => {
           src="../images/asset4.png" 
           layout="fixed"
           height={150}
+          placeholder="blurred"
         />
       </div>
       <Nav activePage='/'/>

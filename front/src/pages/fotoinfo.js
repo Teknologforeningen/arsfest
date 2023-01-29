@@ -11,6 +11,7 @@ const Fotoinfo = () => {
           src="../images/asset2.png" 
           layout="fixed"
           height={150}
+          placeholder="blurred"
         />
       </div>
       <Nav activePage='/fotoinfo'/>

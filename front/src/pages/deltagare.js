@@ -12,6 +12,7 @@ const Deltagare = () => {
           src="../images/asset1.png" 
           layout="fixed"
           height={150}
+          placeholder="blurred"
         />
       </div>
       <Nav activePage='/deltagare'/>

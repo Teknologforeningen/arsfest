@@ -12,6 +12,7 @@ const Anmalan = () => {
           src="../images/asset3.png" 
           layout="fixed"
           height={150}
+          placeholder="blurred"
         />
       </div>
       <Nav activePage='/anmalan'/>

@@ -11,6 +11,7 @@ const Vettoetikett = () => {
           src="../images/asset5.png" 
           layout="fixed"
           height={150}
+          placeholder="blurred"
         />
       </div>
       <Nav activePage='/vettoetikett'/>
