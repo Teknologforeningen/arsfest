@@ -226,12 +226,28 @@ const RegForm = () => {
         </ul>        
       </div>
       {/* Alcohol */}
-      <div className="form-check mb-3">
-        <input className={checkboxInputClass} type="checkbox" defaultChecked={formData.alcohol} value={formData.alcohol}
-          id="alcohol" name="alcohol" onChange={handleCheckChange} />
-        <label className={checkboxLabelClass} htmlFor="alcohol">
-          Alkohol
-        </label>
+      <div className="mb-3">
+        <label htmlFor="alcohol" className="block mb-2 text-sm font-medium">* Alkohol?</label>
+        <ul className="items-center w-full  text-sm font-medium bg-inherit border border-[#ddcdaa] rounded-lg">
+          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
+            <div className="flex items-center pl-3 hover:border-[#ceb886]">
+              <input type="radio" className={radioButtonClass} id="alcohol-true" 
+                name="alcohol" value={true} onChange={handleChange} />
+              <label htmlFor="alcohol-true" className={radioLabelClass}>
+                Jo tack! 
+              </label>
+            </div>
+          </li>
+          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
+            <div className="flex items-center pl-3">
+              <input type="radio" className={radioButtonClass} id="alcohol-false" 
+                name="alcohol" value={false} onChange={handleChange} />
+              <label htmlFor="alcohol-false" className={radioLabelClass}>
+                Nej tack! 
+              </label>
+            </div>
+          </li>
+        </ul>
       </div>
       {/* Menu */}
       <div className="mb-3">
