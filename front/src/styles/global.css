@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html {
-  background-color: #011b17;
-} */
-
 html {
-  background-image: url("./green.jpg");
+  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+  --tw-gradient-from: #011714;
+  --tw-gradient-to: rgb(1 27 23 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: #24433f;
 }
 
 .page-content {
