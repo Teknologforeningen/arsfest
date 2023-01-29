@@ -77,14 +77,14 @@ const RegForm = () => {
     email: '',
     avec: '',
     seating: '',
-    menu: "Fisk",
+    menu: "",
     allergies: '',
     representing: '',
     comment: '',
-    price: 85,
+    price: null,
     sillis: false,
     solenn: false,
-    alcohol: false,
+    alcohol: null,
     visible: false
   });
   const [checkData, setCheckData] = useState({
@@ -143,6 +143,9 @@ const RegForm = () => {
     const valid = (
         formData.name !== '' &&
         formData.email !== '' &&
+        formData.price !== null &&
+        formData.alcohol !== null &&
+        formData.menu !== '' &&
         checkData.foto &&
         checkData.gdpr
     )
@@ -234,7 +237,7 @@ const RegForm = () => {
               <input type="radio" className={radioButtonClass} id="alcohol-true" 
                 name="alcohol" value={true} onChange={handleChange} />
               <label htmlFor="alcohol-true" className={radioLabelClass}>
-                Jo tack! 
+                Ja tack! 
               </label>
             </div>
           </li>
@@ -282,7 +285,7 @@ const RegForm = () => {
       {/* Avec */}
       <div className="mb-3">
         <label htmlFor="avec" className={labelClass}>
-          Namn på avec (lämna tomt om du inte deltar med en avec, observera att också avecer ska skicka in personlig deltagaranmälan)
+          Namn på avec
         </label>
         <input type="avec" className={textInputClass} id="avec"
           name="avec" value={formData.avec} onChange={handleChange} />
@@ -295,14 +298,6 @@ const RegForm = () => {
         <input type="seating" className={textInputClass} id="seating"
           name="seating" value={formData.seating} onChange={handleChange} />
       </div>
-      {/* Sillis */}
-      <div className="form-check mb-3">
-        <input className={checkboxInputClass} type="checkbox" value={formData.sillis} defaultChecked={formData.sillis}
-        id="sillis" name="sillis" onChange={handleCheckChange} />
-        <label className={checkboxLabelClass} htmlFor="sillis">
-        Jag vill anmäla mig till sillisen i samband med deltagaranmälan (16€)
-        </label>
-      </div>
       {/* Solenn */}
       <div className="form-check mb-3">
         <input className={checkboxInputClass} type="checkbox" value={formData.solenn} defaultChecked={formData.solenn}
@@ -314,12 +309,19 @@ const RegForm = () => {
       {/* Representing */}
       <div className="mb-3">
         <label htmlFor="representing" className={labelClass}>
-          Förening eller instans som du representerar
+          Förening eller instans som ni representerar på solenna akten
         </label>
         <input type="representing" className={textInputClass} id="representing"
           name="representing" value={formData.representing} onChange={handleChange} />
       </div>
-
+      {/* Sillis */}
+      <div className="form-check mb-3">
+        <input className={checkboxInputClass} type="checkbox" value={formData.sillis} defaultChecked={formData.sillis}
+        id="sillis" name="sillis" onChange={handleCheckChange} />
+        <label className={checkboxLabelClass} htmlFor="sillis">
+        Jag vill anmäla mig till sillisen i samband med deltagaranmälan (16€)
+        </label>
+      </div>
       {/* Comment */}
       <div className="mb-3">
         <label htmlFor="comment" className={labelClass}>Övriga kommentarer till arrangörerna</label>
