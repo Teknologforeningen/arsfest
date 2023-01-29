@@ -34,7 +34,7 @@ const Home = () => {
           Notera att anmälan går att avboka tills 26.2, varefter den blir bindande. 
         </p>
         <div className="mb-3">
-        <h3 className="text-xl">Priser</h3>
+          <h3 className="text-xl">Priser</h3>
           <table>
             <tbody>
               <tr>
@@ -63,7 +63,7 @@ const Home = () => {
           <h3 className="text-xl">Tidtabell</h3>
           <table>
             <thead><tr><td><b>18.3.2022</b></td></tr></thead>
-            <tbody>
+            <tbody className="align-top">
               <tr>
                 <td>16:00</td>
                 <td>Solenn akt, Aalto Universitetets Kandidatcenters U-vinge, Otsvängen 1</td>
