@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+body {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
   --tw-gradient-from: #011714;
   --tw-gradient-to: rgb(1 27 23 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   --tw-gradient-to: #24433f;
+  background-attachment: fixed;
 }
 
 .page-content {
