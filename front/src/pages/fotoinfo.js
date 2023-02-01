@@ -2,6 +2,8 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/Nav";
 
+export const Head = () => <title>TF151</title>
+
 const Fotoinfo = () => {
   return (
     <>

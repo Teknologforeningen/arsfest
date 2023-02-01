@@ -3,6 +3,8 @@ import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/Nav";
 import RegForm from "../components/RegForm";
 
+export const Head = () => <title>TF151</title>
+
 const Anmalan = () => {
   return (
     <>

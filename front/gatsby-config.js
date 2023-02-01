@@ -3,8 +3,9 @@
  */
 module.exports = {
   siteMetadata: {
-    title: 'TF Årsfest',
+    title: 'TF 151',
     siteUrl: 'https://arsfest.tf.fi',
+    description: 'TF:s Årsfest'
   },
   plugins: [
     'gatsby-plugin-postcss',
