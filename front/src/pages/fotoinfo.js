@@ -5,8 +5,8 @@ import Nav from "../components/Nav";
 const Fotoinfo = () => {
   return (
     <>
-    <div className="center-page">
-      <div className="grid place-items-center">
+    <div className="w-[90%] my-2 mx-auto">
+      <div className="grid place-items-center overflow-hidden">
         <StaticImage
           src="../images/asset2.png" 
           layout="fixed"
@@ -16,7 +16,7 @@ const Fotoinfo = () => {
         />
       </div>
       <Nav activePage='/fotoinfo'/>
-      <div className="page-content">
+      <div className="mt-4">
         <h2 className="text-3xl mb-4">Fotoinfo</h2>
         <p className="mb-3">
           Fotografer kommer att befinna sig på årsfesten

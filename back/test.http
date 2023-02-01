@@ -11,7 +11,6 @@ Content-Type: application/json
   "solenn": true,
   "representing": "tf",
   "alcohol": true,
-  "menu": "Stora ja",
   "allergies": "Nej",
   "comment": "aa",
   "visible": true

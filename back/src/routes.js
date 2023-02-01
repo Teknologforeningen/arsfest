@@ -1,10 +1,9 @@
-const invitedRegOpens = new Date('31 January 2022 12:00');
-const invitedRegCloses = new Date('7 February 2022 00:00');
-const invitedLimit = 550;
+const invitedRegOpens = new Date('9 February 2023 12:00');
+const invitedRegCloses = new Date('16 February 2023 00:00');
+const participantLimit = 235;
 
-const normalRegOpens = new Date('7 February 2022 12:00');
-const normalRegCloses = new Date('15 February 2023 00:00');
-const normalLimit = 665;
+const normalRegOpens = new Date('20 February 2023 12:00');
+const normalRegCloses = new Date('12 March 2023 00:00');
 
 const invitedRegOpen = () => {
   const timeNow = new Date;
@@ -17,12 +16,10 @@ const normalRegOpen = () => {
 };
 
 const regFull = async (client) => {
-  const timeNow = new Date;
   try {
     const { rows } = await client.query(
       'SELECT COUNT(*) FROM participant'
     );
-    const participantLimit = timeNow < normalRegOpens ? invitedLimit : normalLimit;
     return parseInt(rows[0].count) >= participantLimit;  
   }
   catch (error) {
@@ -37,7 +34,6 @@ const participantSchema = {
     required: [
       'name',
       'email',
-      'menu',
       'price',
       'sillis',
       'solenn',
@@ -49,7 +45,6 @@ const participantSchema = {
       email: { type: 'string', minLength: 1 },
       avec: { type: 'string' },
       seating: { type: 'string' },
-      menu: { type: 'string', minLength: 1 },
       allergies: { type: 'string' },
       comment: { type: 'string' },
       representing: { type: 'string' },
@@ -88,9 +83,9 @@ const regRoutes = async (fastify) => {
       const { rows } = await client.query(
         'SELECT name, visible FROM participant ORDER BY created_at ASC'
       );
-      const participants = rows.map(participant => participant.visible ? participant.name : 'Anonym');
-      const normalParticipants = participants.slice(0, normalLimit);
-      const reservParticipants = participants.slice(normalLimit);
+      const participants = rows.map(participant => participant.visible ? participant.name : '-');
+      const normalParticipants = participants.slice(0, participantLimit);
+      const reservParticipants = participants.slice(participantLimit);
 
       res.send({ normalParticipants, reservParticipants });
     } catch (error) {
@@ -106,11 +101,6 @@ const regRoutes = async (fastify) => {
     const client = await fastify.pg.connect();
     try {
       const isFull = await regFull(client)
-      if (invitedRegOpen() && isFull) {
-        res.status(409).send('Kvoten för inbjudna gäster är fylld');
-        return;
-      }
-
       if (!invitedRegOpen() && !normalRegOpen()) {
         res.status(403).send('Anmälan är stängd');
         return;
@@ -123,7 +113,6 @@ const regRoutes = async (fastify) => {
           email,
           avec,
           seating,
-          menu,
           allergies,
           representing,
           comment,
@@ -134,13 +123,12 @@ const regRoutes = async (fastify) => {
           visible
         ) 
          VALUES (
-          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13
+          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12
         )`, [
           participant.name,
           participant.email,
           participant.avec,
           participant.seating,
-          participant.menu,
           participant.allergies,
           participant.representing,
           participant.comment,

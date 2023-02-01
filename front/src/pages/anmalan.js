@@ -6,8 +6,8 @@ import RegForm from "../components/RegForm";
 const Anmalan = () => {
   return (
     <>
-    <div className="center-page">
-      <div className="grid place-items-center">
+    <div className="w-[90%] my-2 mx-auto">
+      <div className="grid place-items-center overflow-hidden">
         <StaticImage
           src="../images/asset3.png" 
           layout="fixed"
@@ -17,7 +17,7 @@ const Anmalan = () => {
         />
       </div>
       <Nav activePage='/anmalan'/>
-      <div className="page-content">
+      <div className="mt-4">
         <RegForm />
       </div>
     </div>

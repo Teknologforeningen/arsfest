@@ -7,38 +7,6 @@ html, body {
 }
 
 body {
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-  --tw-gradient-from: #011714;
-  --tw-gradient-to: rgb(1 27 23 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #24433f;
-}
-
-/* body {
-  background-image: url("./green.jpg");
-} */
-
-.page-content {
-  padding: 1rem 0 0 0;
-  flex: 1;
-  max-height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  overflow: hidden;
-  position: relative;
+  @apply bg-gradient-to-tr from-[#010d0b] to-[#022a25];
   color: #ddcdaa;
-}
-
-.center-page {
-  padding: 1rem 2rem 2rem 0;
-  flex: 1;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.reg-ol {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  justify-content: center;
 }

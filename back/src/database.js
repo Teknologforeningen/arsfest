@@ -20,7 +20,6 @@ const dbConnection = async (fastify, options) => {
       email TEXT,
       avec TEXT,
       seating TEXT,
-      menu TEXT,
       allergies TEXT,
       representing TEXT,
       comment TEXT,

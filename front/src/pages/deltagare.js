@@ -6,8 +6,8 @@ import RegList from "../components/RegList";
 const Deltagare = () => {
   return (
     <>
-    <div className="center-page">
-      <div className="grid place-items-center">
+    <div className="w-[90%] my-2 mx-auto">
+      <div className="grid place-items-center overflow-hidden">
         <StaticImage
           src="../images/asset1.png" 
           layout="fixed"
@@ -17,7 +17,7 @@ const Deltagare = () => {
         />
       </div>
       <Nav activePage='/deltagare'/>
-      <div className="page-content">
+      <div className="mt-4">
         <RegList />
       </div>
     </div>

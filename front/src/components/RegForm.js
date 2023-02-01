@@ -2,17 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { createParticipant, getRegStatus } from '../services/participants'
 
-const InvitedRegFull = () => {
-  return (
-    <>
-    <h2 className="text-3xl mb-4">Deltagaranmälan</h2>
-    <p className="mb-3">
-      Kvoten för inbjudna gäster är fylld. 
-      Det går ännu att anmäla sig med den öppna anmälan som öppnar 20.2 kl 12.
-    </p>
-    </> 
-  )
-}
 
 const RegClosed = () => {
   return (
@@ -20,6 +9,8 @@ const RegClosed = () => {
     <h2 className="text-3xl mb-4">Deltagaranmälan</h2>
     <p className="mb-3">
       Anmälan för inbjudna gäster öppnar på denna sida den 9 februari klockan 12 och stänger 16 februari.
+    </p>
+    <p className="mb-3">  
       Den öppna anmälan för alla TFare samt deras avecer öppnar den 20 februari klockan 12.
       Vänligen observera att avecer bör fylla i sin egen anmälan.
     </p>
@@ -77,7 +68,7 @@ const RegForm = () => {
     email: '',
     avec: '',
     seating: '',
-    menu: "",
+    // menu: "",
     allergies: '',
     representing: '',
     comment: '',
@@ -145,7 +136,7 @@ const RegForm = () => {
         formData.email !== '' &&
         formData.price !== null &&
         formData.alcohol !== null &&
-        formData.menu !== '' &&
+        // formData.menu !== '' &&
         checkData.foto &&
         checkData.gdpr
     )
@@ -157,9 +148,6 @@ const RegForm = () => {
 
   if (!regStatus.invitedOpen && !regStatus.normalOpen)
     return <RegClosed />;
-
-  if (regStatus.isFull && regStatus.invitedOpen)
-    return <InvitedRegFull />;
 
   if (regResponse.type)
     return <RegResponse regResponse={regResponse}/>
@@ -253,7 +241,7 @@ const RegForm = () => {
         </ul>
       </div>
       {/* Menu */}
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label htmlFor="menu" className="block mb-2 text-sm font-medium">* Meny</label>
         <ul className="items-center w-full  text-sm font-medium bg-inherit border border-[#ddcdaa] rounded-lg">
           <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
@@ -275,7 +263,7 @@ const RegForm = () => {
             </div>
           </li>
         </ul>
-      </div>
+      </div> */}
       {/* Allergies */}
       <div className="mb-3">
         <label htmlFor="allergies" className={labelClass}>Allergier och specialdieter</label>

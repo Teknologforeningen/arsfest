@@ -5,8 +5,8 @@ import Nav from "../components/Nav";
 const Vettoetikett = () => {
   return (
     <>
-    <div className="center-page">
-      <div className="grid place-items-center">
+    <div className="w-[90%] my-2 mx-auto">
+      <div className="grid place-items-center overflow-hidden">
         <StaticImage
           src="../images/asset5.png" 
           layout="fixed"
@@ -16,7 +16,7 @@ const Vettoetikett = () => {
         />
       </div>
       <Nav activePage='/vettoetikett'/>
-      <div className="page-content">
+      <div className="mt-4">
         <h1 className="text-3xl mb-4">Vett och etikett</h1>
         <h2 className="text-2xl">Klädkod</h2>
         <p className="mb-3">

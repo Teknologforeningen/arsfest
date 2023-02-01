@@ -5,8 +5,8 @@ import Nav from "../components/Nav";
 const Home = () => {
   return (
     <>
-    <div className="center-page">
-      <div className="grid place-items-center">
+    <div className="w-[90%] my-2 mx-auto">
+      <div className="grid place-items-center overflow-hidden">
         <StaticImage
           src="../images/asset4.png" 
           layout="fixed"
@@ -16,7 +16,7 @@ const Home = () => {
         />
       </div>
       <Nav activePage='/'/>
-      <div className="page-content">
+      <div className="mt-4">
         <h2 className="text-3xl mb-4"><b>Välkommen till TFs 151:a årsfest</b></h2>
         <p className="mb-3">
           Teknologföreningen firar sina 151 verksamhetsår med en makalös årsfest lördagen den 18 mars 2023. Vi önskar alla <b>inbjudna gäster, TFare samt avecer</b> hjärtligt välkomna att fira med oss!
