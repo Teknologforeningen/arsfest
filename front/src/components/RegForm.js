@@ -61,14 +61,61 @@ const RegResponse = ({ regResponse }) => {
     </div>
   )
 }
-  
+
+const TextInput = ({ id, text, onChange, value }) => {
+  return (
+    <div className="mb-3">
+      <label htmlFor={id} className='block mb-2 text-sm font-medium hover:text-[#ceb886]'>
+        {text}
+      </label>
+      <input className='bg-inherit border border-[#ddcdaa] focus:ring-[#ddcdaa] text-sm rounded-lg block w-full p-2.5 hover:text-[#ceb886] hover:border-[#ceb886] focus:border-[#ceb886] focus:outline-none'
+        type="text" id={id} name={id} value={value} onChange={onChange}/>
+    </div>
+  )
+}
+
+const CheckBox = ({ id, text, onChange, value }) => {
+  return (
+    <div className="form-check mb-3">
+      <input className='w-4 h-4 border border-gray-300 rounded bg-gray-50 accent-[#ddcdaa]'
+        type="checkbox" id={id} name={id} value={value} onChange={onChange} />
+      <label htmlFor={id} className='ml-2 text-sm font-medium hover:text-[#ceb886]' >
+        {text}
+      </label>
+    </div>
+  )
+}
+
+const RadioButtonGroup = ({ name, labelText, options, onChange }) => {
+  return (
+    <div className="mb-3">
+      <label className="block mb-2 text-sm font-medium">{labelText}</label>
+      <ul className="items-center w-full  text-sm font-medium bg-inherit border border-[#ddcdaa] rounded-lg">
+        {options.map(option => {
+          const optionId = `${name}-${option.name}`
+          return (
+            <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
+              <div className="flex items-center pl-3 hover:border-[#ceb886]">
+                <input type="radio" className='accent-[#ddcdaa] w-4 h-4 bg-[#011b17] border-[#ddcdaa] focus:ring-[#ddcdaa] focus:ring-1'
+                  id={optionId} name={name} value={option.value} onChange={onChange} />
+                <label htmlFor={optionId} className='w-full py-3 ml-2 text-sm font-medium hover:text-[#ceb886]'>
+                  {option.text} 
+                </label>
+              </div>
+            </li>
+          )
+        })}
+      </ul>        
+    </div>
+  )
+}
+
 const RegForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     avec: '',
     seating: '',
-    // menu: "",
     allergies: '',
     representing: '',
     comment: '',
@@ -102,6 +149,7 @@ const RegForm = () => {
   }, [])
 
   const handleChange = (event) => {
+    console.log(event.target)
     setFormData({
       ...formData,
       [event.target.name]: event.target.value
@@ -109,6 +157,7 @@ const RegForm = () => {
   }
 
   const handleCheckChange = (event) => {
+    console.log(event.target)
     setFormData({
       ...formData,
       [event.target.name]: event.target.checked
@@ -136,13 +185,13 @@ const RegForm = () => {
         formData.email !== '' &&
         formData.price !== null &&
         formData.alcohol !== null &&
-        // formData.menu !== '' &&
         checkData.foto &&
         checkData.gdpr
     )
     return valid;
   }
-    
+
+
   if (actionPending)
     return <LoadingPage />
 
@@ -151,207 +200,94 @@ const RegForm = () => {
 
   if (regResponse.type)
     return <RegResponse regResponse={regResponse}/>
-  
-  const labelClass = 'block mb-2 text-sm font-medium hover:text-[#ceb886]'
-  const textInputClass = 'bg-inherit border border-[#ddcdaa] focus:ring-[#ddcdaa] text-sm rounded-lg block w-full p-2.5 hover:text-[#ceb886] hover:border-[#ceb886] focus:border-[#ceb886] focus:outline-none'
-  const checkboxLabelClass = 'ml-2 text-sm font-medium hover:text-[#ceb886]'
-  const checkboxInputClass = 'w-4 h-4 border border-gray-300 rounded bg-gray-50 accent-[#ddcdaa]'
-  const submitButtonClass = 'px-8 py-3 text-[#011b17] bg-[#ddcdaa] rounded hover:enabled:bg-[#ceb886] disabled:opacity-40'
-  const formSelectClass = 'bg-inherit border border-[#ddcdaa] text-sm rounded-lg block w-full p-2.5 hover:text-[#ceb886] hover:border-[#ceb886] focus:border-[#ceb886] focus:outline-none'
-  const selectOptionClass = 'bg-[#ddcdaa] text-[#011b17] focus:bg-[#ceb886] hover:bg-[#ceb886]'
-  const radioLabelClass = 'w-full py-3 ml-2 text-sm font-medium hover:text-[#ceb886]'
-  const radioButtonClass = 'accent-[#ddcdaa] w-4 h-4 bg-[#011b17] border-[#ddcdaa] focus:ring-[#ddcdaa] focus:ring-1'
-  const radioGroupClass = ''
+
 
   return (
     <div className="grid gap-6 mb-6 md:grid-cols-1">
     {/* Registration full */}
-    {regStatus.isFull && regStatus.normalOpen &&
+    {regStatus.isFull &&
       <p className="mb-3">
         Alla platser till årsfesten är reserverade, men det går ännu att anmäla sig till en reservplats.
       </p>            
     }
       {/* Name */}
-      <div className="mb-3">
-        <label htmlFor="name" className={labelClass}>* Namn (för- och efternamn)</label>
-        <input type="text" className={textInputClass} id="name"
-          name="name" value={formData.name} onChange={handleChange} />
-      </div>
+      <TextInput id="name" onChange={handleChange} value={formData.name}
+        text="* Namn (för- och efternamn)"
+      />
       {/* Email */}
-      <div className="mb-3">
-        <label htmlFor="email" className={labelClass}>* Epost</label>
-        <input type="email" className={textInputClass} id="email"
-          name="email" value={formData.email} onChange={handleChange} />
-      </div>
+      <TextInput id="email" onChange={handleChange} value={formData.email}
+        text="* Epost"
+      />
       {/* Price */}
-      <div className="mb-3">
-        <label className="block mb-2 text-sm font-medium">* Jag deltar med...</label>
-        <ul className="items-center w-full  text-sm font-medium bg-inherit border border-[#ddcdaa] rounded-lg">
-          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
-            <div className="flex items-center pl-3 hover:border-[#ceb886]">
-              <input type="radio" className={radioButtonClass} id="price-student" 
-                name="price" value={85} onChange={handleChange} />
-              <label htmlFor="price-student" className={radioLabelClass}>
-                Supékort studerande (85€) 
-              </label>
-            </div>
-          </li>
-          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
-            <div className="flex items-center pl-3">
-              <input type="radio" className={radioButtonClass} id="price-other" 
-                name="price" value={95} onChange={handleChange} />
-              <label htmlFor="price-other" className={radioLabelClass}>
-                Supékort övriga (95€)
-              </label>
-            </div>
-          </li>
-          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
-            <div className="flex items-center pl-3">
-              <input type="radio" className={radioButtonClass} id="price-support" 
-                name="price" value={151} onChange={handleChange} />
-              <label htmlFor="price-support" className={radioLabelClass}>
-                Understödspris (151€)
-              </label>
-            </div>
-          </li>
-        </ul>        
-      </div>
+      <RadioButtonGroup name="price" onChange={handleChange}
+        labelText="* Jag deltar med..." 
+        options={[
+          {name: "student", value: 85, text: "Supékort studerande (85€)"},
+          {name: "other", value: 95, text: "Supékort övriga (95€)"},
+          {name: "support", value: 151, text: "Understödspris (151€)"}
+        ]}  
+      />
       {/* Alcohol */}
-      <div className="mb-3">
-        <label htmlFor="alcohol" className="block mb-2 text-sm font-medium">* Alkohol?</label>
-        <ul className="items-center w-full  text-sm font-medium bg-inherit border border-[#ddcdaa] rounded-lg">
-          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
-            <div className="flex items-center pl-3 hover:border-[#ceb886]">
-              <input type="radio" className={radioButtonClass} id="alcohol-true" 
-                name="alcohol" value={true} onChange={handleChange} />
-              <label htmlFor="alcohol-true" className={radioLabelClass}>
-                Ja tack! 
-              </label>
-            </div>
-          </li>
-          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
-            <div className="flex items-center pl-3">
-              <input type="radio" className={radioButtonClass} id="alcohol-false" 
-                name="alcohol" value={false} onChange={handleChange} />
-              <label htmlFor="alcohol-false" className={radioLabelClass}>
-                Nej tack! 
-              </label>
-            </div>
-          </li>
-        </ul>
-      </div>
-      {/* Menu */}
-      {/* <div className="mb-3">
-        <label htmlFor="menu" className="block mb-2 text-sm font-medium">* Meny</label>
-        <ul className="items-center w-full  text-sm font-medium bg-inherit border border-[#ddcdaa] rounded-lg">
-          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
-            <div className="flex items-center pl-3 hover:border-[#ceb886]">
-              <input type="radio" className={radioButtonClass} id="menu-fish" 
-                name="menu" value="Fisk" onChange={handleChange} />
-              <label htmlFor="menu-fish" className={radioLabelClass}>
-                Fisk 
-              </label>
-            </div>
-          </li>
-          <li className="w-full border-b border-[#ddcdaa] rounded-t-lg">
-            <div className="flex items-center pl-3">
-              <input type="radio" className={radioButtonClass} id="menu-vegan" 
-                name="menu" value="Vegan" onChange={handleChange} />
-              <label htmlFor="menu-vegan" className={radioLabelClass}>
-                Vegan
-              </label>
-            </div>
-          </li>
-        </ul>
-      </div> */}
+      <RadioButtonGroup name="alcohol" onChange={handleChange}
+        labelText="* Alkohol?" 
+        options={[
+          {name: "true", value: true, text: "Ja tack!"},
+          {name: "false", value: false, text: "Nej tack!"},
+        ]}  
+      />
       {/* Allergies */}
-      <div className="mb-3">
-        <label htmlFor="allergies" className={labelClass}>Allergier och specialdieter</label>
-        <input type="allergies" className={textInputClass} id="allergies"
-          name="allergies" value={formData.allergies} onChange={handleChange} />
-      </div>
+      <TextInput id="allergies" onChange={handleChange} value={formData.allergies}
+        text="Allergier och specialdieter"
+      />
       {/* Avec */}
-      <div className="mb-3">
-        <label htmlFor="avec" className={labelClass}>
-          Namn på avec
-        </label>
-        <input type="avec" className={textInputClass} id="avec"
-          name="avec" value={formData.avec} onChange={handleChange} />
-      </div>
+      <TextInput id="avec" onChange={handleChange} value={formData.avec}
+        text="Namn på avec. Observera att avecen måste skicka in en egen anmälan"
+      />
       {/* Seating */}
-      <div className="mb-3">
-        <label htmlFor="seating" className={labelClass}>
-          Önskat bordssällskap (namn eller gruppnamn)
-        </label>
-        <input type="seating" className={textInputClass} id="seating"
-          name="seating" value={formData.seating} onChange={handleChange} />
-      </div>
+      <TextInput id="seating" onChange={handleChange} value={formData.seating}
+        text="Önskat bordssällskap (namn eller gruppnamn)"
+      />
       {/* Solenn */}
-      <div className="form-check mb-3">
-        <input className={checkboxInputClass} type="checkbox" value={formData.solenn} defaultChecked={formData.solenn}
-        id="solenn" name="solenn" onChange={handleCheckChange} />
-        <label className={checkboxLabelClass} htmlFor="solenn">
-          Jag vill delta i den solenna akten för att framföra en hälsning åt jubilaren
-        </label>
-      </div>
+      <CheckBox id="solenn" onChange={handleCheckChange} value={formData.solenn}
+        text="Jag vill delta i den solenna akten för att framföra en hälsning åt jubilaren"
+      />
       {/* Representing */}
-      <div className="mb-3">
-        <label htmlFor="representing" className={labelClass}>
-          Förening eller instans som ni representerar på solenna akten
-        </label>
-        <input type="representing" className={textInputClass} id="representing"
-          name="representing" value={formData.representing} onChange={handleChange} />
-      </div>
+      <TextInput id="representing" onChange={handleChange} value={formData.representing}
+        text="Förening eller instans som ni representerar på solenna akten"
+      />
       {/* Sillis */}
-      <div className="form-check mb-3">
-        <input className={checkboxInputClass} type="checkbox" value={formData.sillis} defaultChecked={formData.sillis}
-        id="sillis" name="sillis" onChange={handleCheckChange} />
-        <label className={checkboxLabelClass} htmlFor="sillis">
-        Jag vill anmäla mig till sillisen i samband med deltagaranmälan (16€)
-        </label>
-      </div>
+      <CheckBox id="sillis" onChange={handleCheckChange} value={formData.sillis}
+        text="Jag vill anmäla mig till sillisen i samband med deltagaranmälan (16€)"
+      />
       {/* Comment */}
       <div className="mb-3">
-        <label htmlFor="comment" className={labelClass}>Övriga kommentarer till arrangörerna</label>
-        <textarea rows={4} type="specialdieter" className={textInputClass} id="comment"
-          name="comment" value={formData.comment} onChange={handleChange} />
+        <label htmlFor="comment" className='block mb-2 text-sm font-medium hover:text-[#ceb886]'>
+          Övriga kommentarer till arrangörerna
+        </label>
+        <textarea className='bg-inherit border border-[#ddcdaa] focus:ring-[#ddcdaa] text-sm rounded-lg block w-full p-2.5 hover:text-[#ceb886] hover:border-[#ceb886] focus:border-[#ceb886] focus:outline-none'
+           type="text" id="comment" name="comment" rows={4} 
+           value={formData.comment} onChange={handleChange} 
+        />
       </div>
       {/* Visible */}
-      <div className="form-check mb-3">
-        <input className={checkboxInputClass} type="checkbox" defaultChecked={formData.visible} value={formData.visible}
-          id="visible" name="visible" onChange={handleCheckChange} />
-        <label className={checkboxLabelClass} htmlFor="visible">
-          Jag vill att mitt namn ska synas i den öppna deltagarlistan
-        </label>
-      </div>
+      <CheckBox id="visible" onChange={handleCheckChange} value={formData.visible}
+        text="Jag vill att mitt namn ska synas i den öppna deltagarlistan"
+      />
       {/* Photo guidelines */}
-      <div className="mandatory-field">
-        <div className="form-check mb-3">
-          <input className={checkboxInputClass} type="checkbox" defaultChecked={checkData.foto} value={checkData.foto}
-            id="foto" name="foto" onChange={handleCheckChange} />
-          <label className={checkboxLabelClass} htmlFor="foto">
-            * Jag har läst informationen om fotografering under årsfesten. Ifall jag inte vill bli fotograferad under årsfesten följer jag de anvisningar som getts på “Fotoinfo”-fliken.
-          </label>
-        </div>
-      </div>
+      <CheckBox id="foto" onChange={handleCheckChange} value={formData.foto}
+        text="* Jag har läst informationen om fotografering under årsfesten. Ifall jag inte vill bli fotograferad under årsfesten följer jag de anvisningar som getts på “Fotoinfo”-fliken."
+      />
       {/* GDPR */}
-      <div className="mandatory-field">
-        <div className="form-check mb-3">
-          <input className={checkboxInputClass} type="checkbox" defaultChecked={checkData.gdpr} value={checkData.gdpr}
-            id="gdpr" name="gdpr" onChange={handleCheckChange} />
-          <label className={checkboxLabelClass} htmlFor="gdpr">
-            * Jag godkänner att mina personuppgifter används för festens förverkligande. Uppgifterna raderas senast 14 dagar efter ordnandet av festen.
-          </label>
-        </div>
-      </div>
+      <CheckBox id="gdpr" onChange={handleCheckChange} value={formData.gdpr}
+        text="* Jag godkänner att mina personuppgifter används för festens förverkligande. Uppgifterna raderas senast 14 dagar efter ordnandet av festen."
+      />
       {/* Send form button */}
       <div className="form-btn-container">
-        {isValid() ?
-        <button type="button" className={submitButtonClass} onClick={handleSend}>Skicka</button>
-        :
-        <button type="button" className={submitButtonClass} onClick={handleSend} disabled>Skicka</button>
-      } 
-        
+        <button className='px-8 py-3 text-[#011b17] bg-[#ddcdaa] rounded hover:enabled:bg-[#ceb886] disabled:opacity-40'
+          type="button" onClick={handleSend} disabled={!isValid()}
+        >
+          Skicka
+        </button>
       </div>
     </div>
   )
