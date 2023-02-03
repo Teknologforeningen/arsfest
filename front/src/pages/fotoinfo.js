@@ -8,11 +8,11 @@ const Fotoinfo = () => {
   return (
     <>
     <div className="w-[90%] my-2 mx-auto">
-      <div className="grid place-items-center overflow-hidden">
+      <div className="grid place-items-center overflow-hidden py-[30px]">
         <StaticImage
           src="../images/asset2.png" 
           layout="fixed"
-          height={150}
+          height={90}
           placeholder="blurred"
           alt="Djur"
         />
