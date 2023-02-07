@@ -20,7 +20,7 @@ const regFull = async (client) => {
     const { rows } = await client.query(
       'SELECT COUNT(*) FROM participant'
     );
-    return parseInt(rows[0].count) >= participantLimit;  
+    return parseInt(rows[0].count) >= participantLimit;
   }
   catch (error) {
     console.log(error);
@@ -58,10 +58,6 @@ const participantSchema = {
 };
 
 const regRoutes = async (fastify) => {
-  fastify.get('/', async (req, res) => {
-    await res.sendFile('index.html');
-  });
-
   fastify.get('/api/regstatus', async (req, res) => {
     const client = await fastify.pg.connect();
     try {
@@ -96,11 +92,10 @@ const regRoutes = async (fastify) => {
     }
   });
 
-
   fastify.post('/api/participant', { schema: participantSchema }, async (req, res) => {
     const client = await fastify.pg.connect();
     try {
-      const isFull = await regFull(client)
+      const isFull = await regFull(client);
       if (!invitedRegOpen() && !normalRegOpen()) {
         res.status(403).send('Anmälan är stängd');
         return;
@@ -139,6 +134,7 @@ const regRoutes = async (fastify) => {
           participant.visible
         ]
       );
+
       const message = isFull ? 'full' : 'Registration successful';
       res.status(201).send(message);
     } catch (error) {
