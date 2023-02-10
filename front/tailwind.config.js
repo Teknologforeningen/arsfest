@@ -5,7 +5,11 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        'fluid': 'repeat(auto-fill, 200px)',
+      },
+    },
   },
   plugins: [],
 }

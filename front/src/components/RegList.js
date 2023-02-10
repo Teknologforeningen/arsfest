@@ -18,7 +18,7 @@ const RegList = () => {
   return (
     <>
     <h2 className="text-3xl mb-4">Deltagare</h2>
-    <ol className="list-decimal list-inside">
+    <ol className="list-decimal list-inside grid grid-cols-fluid">
       {participants.normalParticipants.map((participant, index) =>
         <li key={index}>{participant}</li>
       )}
