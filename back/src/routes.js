@@ -1,5 +1,5 @@
 const invitedRegOpens = new Date('9 February 2023 12:00');
-const invitedRegCloses = new Date('16 February 2023 00:00');
+const invitedRegCloses = new Date('17 February 2023 00:00');
 const participantLimit = 235;
 
 const normalRegOpens = new Date('20 February 2023 12:00');
