@@ -1,9 +1,11 @@
-const invitedRegOpens = new Date('9 February 2023 12:00');
-const invitedRegCloses = new Date('17 February 2023 00:00');
-const participantLimit = 235;
+const invitedRegOpens = new Date(process.env.INVITED_REG_OPENS);
+const invitedRegCloses = new Date(process.env.INVITED_REG_CLOSES);
 
-const normalRegOpens = new Date('20 February 2023 12:00');
-const normalRegCloses = new Date('12 March 2023 00:00');
+const normalRegOpens = new Date(process.env.NORMAL_REG_OPENS);
+const normalRegCloses = new Date(process.env.NORMAL_REG_CLOSES);
+
+const participantLimit = process.env.PARTICIPANT_LIMIT;
+
 
 const invitedRegOpen = () => {
   const timeNow = new Date;

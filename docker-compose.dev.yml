@@ -12,7 +12,12 @@ services:
       - DB_PW=${DB_PW:-arsfest}
       - DB_NAME=${DB_NAME:-arsfest}
       - PORT=${APP_PORT:-5000}
-    container_name: arsfest-api
+      - INVITED_REG_OPENS=${INVITED_REG_OPENS:-9 February 2023 12:00}
+      - INVITED_REG_CLOSES=${INVITED_REG_CLOSES:-17 February 2023 00:00}
+      - NORMAL_REG_OPENS=${NORMAL_REG_OPENS:-20 February 2023 12:00}
+      - NORMAL_REG_CLOSES=${NORMAL_REG_CLOSES:-12 March 2023 00:00}
+      - PARTICIPANT_LIMIT=${PARTICIPANT_LIMIT:-235}
+    container_name: arsfestapi
     depends_on:
       - db
     ports:
@@ -30,7 +35,7 @@ services:
       context: ./front
       dockerfile: "Dockerfile.dev"
     restart: always
-    container_name: arsfest-ui
+    container_name: arsfestui
     depends_on:
       - db
       - api
