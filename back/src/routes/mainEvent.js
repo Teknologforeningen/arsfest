@@ -59,7 +59,7 @@ const participantSchema = {
   }
 };
 
-const regRoutes = async (fastify) => {
+const mainRoutes = async (fastify) => {
   fastify.get('/api/regstatus', async (req, res) => {
     const client = await fastify.pg.connect();
     try {
@@ -149,4 +149,4 @@ const regRoutes = async (fastify) => {
 
 };
 
-module.exports = regRoutes;
+module.exports = mainRoutes;

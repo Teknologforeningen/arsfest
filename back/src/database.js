@@ -42,6 +42,16 @@ const dbConnection = async (fastify, options) => {
     );`
   );
 
+  // Create afterparty participant table
+  await client.query(
+    `CREATE TABLE IF NOT EXISTS afterpartyparticipant (
+      id SERIAL,
+      created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+      name TEXT,
+      email TEXT
+    );`
+  );
+
 };
 
 module.exports = fastifyPlugin(dbConnection);

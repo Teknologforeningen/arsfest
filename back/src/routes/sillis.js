@@ -62,7 +62,6 @@ const sillisRoutes = async (fastify) => {
         return;
       }
 
-
       const participant = req.body;
       await client.query(
         `INSERT INTO sillisparticipant(
