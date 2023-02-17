@@ -12,6 +12,7 @@ const dbConnection = async (fastify, options) => {
   });
 
   const client = await fastify.pg.connect();
+  // Create main participant table
   await client.query(
     `CREATE TABLE IF NOT EXISTS participant (
       id SERIAL,
@@ -30,6 +31,17 @@ const dbConnection = async (fastify, options) => {
       visible BOOLEAN
     );`
   );
+
+  // Create sillis participant table
+  await client.query(
+    `CREATE TABLE IF NOT EXISTS sillisparticipant (
+      id SERIAL,
+      created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+      name TEXT,
+      email TEXT
+    );`
+  );
+
 };
 
 module.exports = fastifyPlugin(dbConnection);

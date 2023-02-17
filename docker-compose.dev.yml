@@ -17,6 +17,10 @@ services:
       - NORMAL_REG_OPENS=${NORMAL_REG_OPENS:-20 February 2023 12:00}
       - NORMAL_REG_CLOSES=${NORMAL_REG_CLOSES:-12 March 2023 00:00}
       - PARTICIPANT_LIMIT=${PARTICIPANT_LIMIT:-235}
+      - SILLIS_REG_OPENS=${NORMAL_REG_OPENS:-20 February 2023 12:00}
+      - SILLIS_REG_CLOSES=${NORMAL_REG_CLOSES:-11 March 2023 00:00}
+      - SILLIS_LIMIT=${PARTICIPANT_LIMIT:-300}
+
     container_name: arsfestapi
     depends_on:
       - db

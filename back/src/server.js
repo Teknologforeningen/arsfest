@@ -2,11 +2,13 @@ require('dotenv').config();
 const fastify = require('fastify')({ logger: { level: 'error'} });
 const cors = require('@fastify/cors');
 const regRoutes = require('./routes');
+const sillisRoutes = require('./sillisroutes');
 const dbConnection = require('./database');
 
 fastify.register(dbConnection);
 fastify.register(cors);
 fastify.register(regRoutes);
+fastify.register(sillisRoutes);
 
 const start = async () => {
   const PORT = process.env.PORT || 5000;
