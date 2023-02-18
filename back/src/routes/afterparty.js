@@ -38,9 +38,8 @@ const afterpartyRoutes = async (fastify) => {
   fastify.get('/api/afterparty/regstatus', async (req, res) => {
     const client = await fastify.pg.connect();
     try {
-      const regOpen = regOpen();
       const isFull = await regFull(client);
-      res.send({ isFull, regOpen });
+      res.send({ isFull, regOpen: regOpen() });
     } catch (error) {
       console.log(error);
       res.code(400).send('Error fetching registration status');

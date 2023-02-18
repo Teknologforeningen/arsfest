@@ -142,6 +142,8 @@ const RegForm = () => {
 
 
   return (
+    <>
+    <h2 className="text-3xl mb-4">Deltagaranmälan</h2>
     <div className="grid gap-6 mb-6 md:grid-cols-1">
     {/* Registration full */}
     {regStatus.isFull &&
@@ -229,6 +231,7 @@ const RegForm = () => {
         </button>
       </div>
     </div>
+    </>
   )
 }
 

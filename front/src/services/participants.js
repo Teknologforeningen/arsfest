@@ -31,3 +31,13 @@ export const getSillisRegStatus = async () => {
   const response = await axios.get(`${baseUrl}/sillis/regstatus`)
   return response.data
 }
+
+export const createAfterpartyParticipant = async (participant) => {
+  const response = await axios.post(`${baseUrl}/afterparty/participant`, { ...participant })
+  return response.data
+}
+
+export const getAfterpartyRegStatus = async () => {
+  const response = await axios.get(`${baseUrl}/afterparty/regstatus`)
+  return response.data
+}

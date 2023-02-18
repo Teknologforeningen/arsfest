@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { createSillisParticipant, getSillisRegStatus } from '../services/participants';
+import { createAfterpartyParticipant, getAfterpartyRegStatus } from '../services/participants';
 import LoadingView from "./LoadingView";
 import TextInput from "./TextInput";
 import Checkbox from "./Checkbox";
@@ -8,9 +8,9 @@ import Checkbox from "./Checkbox";
 const RegClosed = ({ message }) => {
   return (
     <>
-    <h2 className="text-3xl mb-4">Sillisanmälan</h2>
+    <h2 className="text-3xl mb-4">Efterfestanmälan</h2>
     <p className="mb-3">
-      <b>Obs!</b> Ifall du redan anmält dig till sillisen i samband med årsfestanmälan ska du inte anmäla dig här.
+      <b>Obs!</b> Ifall du redan anmält dig till årsfesten ska du inte anmäla dig här.
     </p>
     <p >
       {message}
@@ -23,7 +23,7 @@ const RegResponse = ({ regResponse }) => {
   if (regResponse.type === 'success') {
     return (
       <div>
-        <h2 className="text-3xl mb-4">Välkommen på sillis!</h2>
+        <h2 className="text-3xl mb-4">Välkommen på efterfest!</h2>
         <p className="mb-3">Din anmälan har tagits emot.</p>
         <p className="mb-3">Observera att anmälan går att avboka tills 10.3, varefter den blir bindande.</p>
         <p>Alla deltagare kontaktas i ett senare skede per epost.</p>
@@ -39,7 +39,7 @@ const RegResponse = ({ regResponse }) => {
   )
 }
 
-const SillisForm = () => {
+const AfterpartyForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,7 +60,7 @@ const SillisForm = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setRegStatus(await getSillisRegStatus());
+      setRegStatus(await getAfterpartyRegStatus());
       setActionPending(false);
     }
     fetchData()
@@ -87,7 +87,7 @@ const SillisForm = () => {
   const handleSend = async () => {
     setActionPending(true);
     try {
-      const response = await createSillisParticipant(formData)
+      const response = await createAfterpartyParticipant(formData)
       setRegResponse({ type: 'success', message: response });
       setActionPending(false);
     } catch (error) {
@@ -110,23 +110,23 @@ const SillisForm = () => {
     return <LoadingView />
 
   if (!regStatus.regOpen)
-    return <RegClosed message="Anmälan till sillisen öppnar 20.2 kl 12:00 och stänger 10.3."/>;
+    return <RegClosed message="Anmälan till efterfesten öppnar 20.2 kl 12:00 och stänger 10.3."/>;
 
   if (regStatus.isFull)
-    return <RegClosed message="Sillisen är fullbokad."/>;
+    return <RegClosed message="Efterfesten är fullbokad."/>;
 
   if (regResponse.type)
     return <RegResponse regResponse={regResponse}/>
 
   return (
     <>
-    <h2 className="text-3xl mb-4">Sillisanmälan</h2>
+    <h2 className="text-3xl mb-4">Efterfestanmälan</h2>
     <div className="grid gap-6 mb-6 md:grid-cols-1">
       <p className="mb-3">
-        <b>Obs!</b> Ifall du redan anmält dig till sillisen i samband med årsfestanmälan ska du inte anmäla dig här.
+        <b>Obs!</b> Ifall du redan anmält dig till årsfesten ska du inte anmäla dig här.
       </p>
       <p className="mb-3">
-        Infotext om sillisen
+        Infotext om efterfesten
       </p>
       <TextInput id="name" onChange={handleChange} value={formData.name}
         text="* Namn (för- och efternamn)"
@@ -152,4 +152,4 @@ const SillisForm = () => {
   )
 }
 
-export default SillisForm
+export default AfterpartyForm
