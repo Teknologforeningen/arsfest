@@ -1,7 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { createParticipant, getRegStatus } from '../services/participants'
-
+import { createParticipant, getRegStatus } from '../services/participants';
+import LoadingView from "./LoadingView";
+import TextInput from "./TextInput";
+import Checkbox from "./Checkbox";
+import RadioButtonGroup from "./RadioButtonGroup";
 
 const RegClosed = () => {
   return (
@@ -16,20 +19,6 @@ const RegClosed = () => {
     </p>
     </>
   )
-}
-
-const LoadingPage = () => {
-  return (
-    <div className="text-center">
-      <div role="status">
-        <svg aria-hidden="true" className="inline w-8 h-8 mr-2 text-gray-200 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-        </svg>
-        <span className="sr-only">Loading...</span>
-      </div>
-    </div>
-)
 }
 
 const RegResponse = ({ regResponse }) => {
@@ -58,56 +47,6 @@ const RegResponse = ({ regResponse }) => {
     <div>
       <h2 className="text-3xl mb-4">Något gick fel när din anmälan behandlades</h2>
       <p>{regResponse.message}</p>
-    </div>
-  )
-}
-
-const TextInput = ({ id, text, onChange, value }) => {
-  return (
-    <div className="mb-3">
-      <label htmlFor={id} className='block mb-2 text-sm font-medium hover:text-[#ceb886]'>
-        {text}
-      </label>
-      <input className='bg-inherit border border-[#ddcdaa] focus:ring-[#ddcdaa] text-sm rounded-lg block w-full p-2.5 hover:text-[#ceb886] hover:border-[#ceb886] focus:border-[#ceb886] focus:outline-none'
-        type="text" id={id} name={id} value={value} onChange={onChange}/>
-    </div>
-  )
-}
-
-const CheckBox = ({ id, text, onChange, value }) => {
-  return (
-    <div className="form-check mb-3">
-      <input className='w-4 h-4 border border-gray-300 rounded bg-gray-50 accent-[#ddcdaa]'
-        type="checkbox" id={id} name={id} value={value} onChange={onChange} />
-      <label htmlFor={id} className='ml-2 text-sm font-medium hover:text-[#ceb886]' >
-        {text}
-      </label>
-    </div>
-  )
-}
-
-const RadioButtonGroup = ({ name, labelText, options, onChange }) => {
-  const isLastOption = index => index + 1 >= options.length
-
-  return (
-    <div className="mb-3">
-      <label className="block mb-2 text-sm font-medium">{labelText}</label>
-      <ul className="items-center w-full  text-sm font-medium bg-inherit border border-[#ddcdaa] rounded-lg">
-        {options.map((option, index) => {
-          const optionId = `${name}-${option.name}`
-          return (
-            <li key={optionId} className={`w-full border-[#ddcdaa] rounded-t-lg ${!isLastOption(index) && 'border-b'}`}>
-              <div className="flex items-center pl-3 hover:border-[#ceb886]">
-                <input type="radio" className='accent-[#ddcdaa] w-4 h-4 bg-[#011b17] border-[#ddcdaa] focus:ring-[#ddcdaa] focus:ring-1'
-                  id={optionId} name={name} value={option.value} onChange={onChange} />
-                <label htmlFor={optionId} className='w-full py-3 ml-2 text-sm font-medium hover:text-[#ceb886]'>
-                  {option.text} 
-                </label>
-              </div>
-            </li>
-          )
-        })}
-      </ul>        
     </div>
   )
 }
@@ -193,7 +132,7 @@ const RegForm = () => {
 
 
   if (actionPending)
-    return <LoadingPage />
+    return <LoadingView />
 
   if (!regStatus.invitedOpen && !regStatus.normalOpen)
     return <RegClosed />;
@@ -248,7 +187,7 @@ const RegForm = () => {
         text="Önskat bordssällskap (namn eller gruppnamn)"
       />
       {/* Solenn */}
-      <CheckBox id="solenn" onChange={handleCheckChange} value={formData.solenn}
+      <Checkbox id="solenn" onChange={handleCheckChange} value={formData.solenn}
         text="Jag vill delta i den solenna akten för att framföra en hälsning åt jubilaren"
       />
       {/* Representing */}
@@ -256,7 +195,7 @@ const RegForm = () => {
         text="Förening eller instans som ni representerar på solenna akten"
       />
       {/* Sillis */}
-      <CheckBox id="sillis" onChange={handleCheckChange} value={formData.sillis}
+      <Checkbox id="sillis" onChange={handleCheckChange} value={formData.sillis}
         text="Jag vill anmäla mig till sillisen i samband med deltagaranmälan (16€)"
       />
       {/* Comment */}
@@ -270,15 +209,15 @@ const RegForm = () => {
         />
       </div>
       {/* Visible */}
-      <CheckBox id="visible" onChange={handleCheckChange} value={formData.visible}
+      <Checkbox id="visible" onChange={handleCheckChange} value={formData.visible}
         text="Jag vill att mitt namn ska synas i den öppna deltagarlistan"
       />
       {/* Photo guidelines */}
-      <CheckBox id="foto" onChange={handleCheckChange} value={formData.foto}
+      <Checkbox id="foto" onChange={handleCheckChange} value={formData.foto}
         text="* Jag har läst informationen om fotografering under årsfesten. Ifall jag inte vill bli fotograferad under årsfesten följer jag de anvisningar som getts på “Fotoinfo”-fliken."
       />
       {/* GDPR */}
-      <CheckBox id="gdpr" onChange={handleCheckChange} value={formData.gdpr}
+      <Checkbox id="gdpr" onChange={handleCheckChange} value={formData.gdpr}
         text="* Jag godkänner att mina personuppgifter används för festens förverkligande. Uppgifterna raderas senast 14 dagar efter ordnandet av festen."
       />
       {/* Send form button */}

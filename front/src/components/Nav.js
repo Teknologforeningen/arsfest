@@ -5,7 +5,8 @@ const pages = [
   { href: '/anmalan', text: 'Anmälan' },
   { href: '/deltagare', text: 'Deltagare' },
   { href: '/fotoinfo', text: 'Fotoinfo' },
-  { href: '/vettoetikett', text: 'Vett och etikett' }
+  { href: '/vettoetikett', text: 'Vett och etikett' },
+  { href: '/sillis', text: 'Sillis' },
 ]
 
 const Nav = ({ activePage }) => {
