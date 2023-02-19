@@ -2,12 +2,12 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/Nav";
 
-export const Head = () => <title>TF151</title>
+export const Head = () => <title>TF 151</title>
 
 const Vettoetikett = () => {
   return (
     <>
-    <div className="w-[90%] my-2 mx-auto">
+    <div className="w-[90%] lg:w-[80%] 2xl:w-[70%] my-2 mx-auto">
       <div className="grid place-items-center overflow-hidden py-[30px]">
         <StaticImage
           src="../images/asset5.png" 

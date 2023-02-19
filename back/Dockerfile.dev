@@ -1,10 +1,12 @@
 FROM node:19-alpine
 ENV TZ=Europe/Helsinki
 
-WORKDIR /opt/app
-COPY . ./
+WORKDIR /arsfest
 
+COPY package.json .
 RUN npm install
+
+COPY . ./
 
 EXPOSE 5000
 

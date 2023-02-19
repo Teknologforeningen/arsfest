@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'fluid': 'repeat(auto-fill, 200px)',
+        'fluid': 'repeat(auto-fill, 250px)',
       },
     },
   },
