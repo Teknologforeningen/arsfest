@@ -25,9 +25,9 @@ const RegList = () => {
     </ol>
     {participants.reservParticipants.length > 0 &&
     <>
-    <h2 className="text-3xl mb-1 mt-4">Reservlista:</h2>
+    <h2 className="text-3xl mb-1 mt-4">Reservlista</h2>
     <p className="mb-4">Observera att reservplatser inte garanterar en plats på årsfesten</p>
-    <ol className="list-decimal list-inside">
+    <ol className="list-decimal list-inside grid grid-cols-fluid">
       {participants.reservParticipants.map((participant, index) =>
         <li key={index}>{participant}</li>
       )}
