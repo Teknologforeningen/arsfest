@@ -34,7 +34,7 @@ services:
     volumes:
       - type: bind
         source: ./back/src
-        target: /opt/app/src
+        target: /arsfest/src
 
   ui:
     build:

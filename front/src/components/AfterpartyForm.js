@@ -5,16 +5,30 @@ import LoadingView from "./LoadingView";
 import TextInput from "./TextInput";
 import Checkbox from "./Checkbox";
 
+const AfterpartyInfo = () => {
+  return (
+    <>
+      <h2 className="text-3xl mb-4">Efterfestanmälan</h2>
+      <p className="mb-6">
+        <b>Obs!</b> Efterfesten ingår i banketten, så denna anmälan är endast för de som inte deltar på banketten!
+      </p>
+      <p className="mb-3">
+        Fick du inte plats till banketten eller är du annars bara sugen på att efterfesta? Frukta inte, här kan du köpa din efterfestbiljett!
+      </p>
+      <p className="mb-6">
+        Efterfestens dörrar öppnar cirka 00.30. Anmälan är bindande och ifall du inte kan komma är det möjligt för dig att hitta en ersättare. Efterfestens pris är 10€.
+      </p>
+    </>
+  )
+}
+
 const RegClosed = ({ message }) => {
   return (
     <>
-    <h2 className="text-3xl mb-4">Efterfestanmälan</h2>
-    <p className="mb-3">
-      <b>Obs!</b> Ifall du redan anmält dig till årsfesten ska du inte anmäla dig här.
-    </p>
-    <p >
-      {message}
-    </p>
+      <AfterpartyInfo />
+      <p >
+      <b>{message}</b>
+      </p>
     </>
   )
 }
@@ -26,7 +40,6 @@ const RegResponse = ({ regResponse }) => {
         <h2 className="text-3xl mb-4">Välkommen på efterfest!</h2>
         <p className="mb-3">Din anmälan har tagits emot.</p>
         <p className="mb-3">Observera att anmälan går att avboka tills 10.3, varefter den blir bindande.</p>
-        <p>Alla deltagare kontaktas i ett senare skede per epost.</p>
       </div>
     )
   }
@@ -110,24 +123,18 @@ const AfterpartyForm = () => {
     return <LoadingView />
 
   if (!regStatus.regOpen)
-    return <RegClosed message="Anmälan till efterfesten öppnar 20.2 kl 12:00 och stänger 10.3."/>;
+    return <RegClosed message="Anmälan till efterfesten öppnar 1.3 kl 12:00 på denna sida och stänger 10.3."/>
 
   if (regStatus.isFull)
-    return <RegClosed message="Efterfesten är fullbokad."/>;
+    return <RegClosed message="Efterfesten är fullbokad."/>
 
   if (regResponse.type)
     return <RegResponse regResponse={regResponse}/>
 
   return (
     <>
-    <h2 className="text-3xl mb-4">Efterfestanmälan</h2>
+    <AfterpartyInfo />
     <div className="grid gap-6 mb-6 md:grid-cols-1">
-      <p className="mb-3">
-        <b>Obs!</b> Ifall du redan anmält dig till årsfesten ska du inte anmäla dig här.
-      </p>
-      <p className="mb-3">
-        Infotext om efterfesten
-      </p>
       <TextInput id="name" onChange={handleChange} value={formData.name}
         text="* Namn (för- och efternamn)"
       />

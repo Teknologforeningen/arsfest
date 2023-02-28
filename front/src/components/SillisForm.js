@@ -5,16 +5,40 @@ import LoadingView from "./LoadingView";
 import TextInput from "./TextInput";
 import Checkbox from "./Checkbox";
 
+const SillisInfo = () => {
+  return (
+    <>
+      <h2 className="text-3xl mb-4">Sillisanmälan</h2>
+      <p className="mb-6">
+        <b>Obs!</b> Ifall du redan anmält dig till sillisen i samband med årsfestanmälan ska du inte anmäla dig här.
+      </p>
+      <p className="mb-3">
+        Efter en natt av dansande kommer ju såklart SILLIZEN! Dra på dig din halare och den perfekta sillizhatten och kom till TF för att njuta av mat, gott sällskap, bollhav och mimosa &lt;3
+      </p>
+      <p className="mb-3">
+        Sillizen är inte bara för årsfestdeltagare utan vem som helst får komma!  
+      </p>
+      <p className="mb-3">
+        Vad? Årsfestsilliz! <br />
+        När? 19.3 kl 12-18 <br />
+        Var? TF, Otsvängen 22 <br />
+        Vem? Alla! <br />
+        Pris? 16€ på förhand / 18€ vid dörren
+      </p>
+      <p className="mb-6">
+      Anmälan är bindande och ifall du inte kan komma får du själv hitta en ersättare.
+      </p>
+    </>
+  )
+}
+
 const RegClosed = ({ message }) => {
   return (
     <>
-    <h2 className="text-3xl mb-4">Sillisanmälan</h2>
-    <p className="mb-3">
-      <b>Obs!</b> Ifall du redan anmält dig till sillisen i samband med årsfestanmälan ska du inte anmäla dig här.
-    </p>
-    <p >
-      {message}
-    </p>
+      <SillisInfo />
+      <p >
+        <b>{message}</b>
+      </p>
     </>
   )
 }
@@ -26,7 +50,6 @@ const RegResponse = ({ regResponse }) => {
         <h2 className="text-3xl mb-4">Välkommen på sillis!</h2>
         <p className="mb-3">Din anmälan har tagits emot.</p>
         <p className="mb-3">Observera att anmälan går att avboka tills 10.3, varefter den blir bindande.</p>
-        <p>Alla deltagare kontaktas i ett senare skede per epost.</p>
       </div>
     )
   }
@@ -109,25 +132,19 @@ const SillisForm = () => {
   if (actionPending)
     return <LoadingView />
 
-  if (!regStatus.regOpen)
-    return <RegClosed message="Anmälan till sillisen öppnar 20.2 kl 12:00 och stänger 10.3."/>;
+  if (!regStatus.regOpen) 
+    return <RegClosed message="Anmälan till sillisen öppnar 1.3 kl 12:00 på denna sida och stänger 10.3."/>
 
-  if (regStatus.isFull)
-    return <RegClosed message="Sillisen är fullbokad."/>;
-
+  if (regStatus.isFull) 
+    return <RegClosed message="Sillisen är fullbokad."/>
+  
   if (regResponse.type)
     return <RegResponse regResponse={regResponse}/>
 
   return (
     <>
-    <h2 className="text-3xl mb-4">Sillisanmälan</h2>
+    <SillisInfo />
     <div className="grid gap-6 mb-6 md:grid-cols-1">
-      <p className="mb-3">
-        <b>Obs!</b> Ifall du redan anmält dig till sillisen i samband med årsfestanmälan ska du inte anmäla dig här.
-      </p>
-      <p className="mb-3">
-        Infotext om sillisen
-      </p>
       <TextInput id="name" onChange={handleChange} value={formData.name}
         text="* Namn (för- och efternamn)"
       />
