@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: 'TF 151',
+    title: 'TF 152',
     siteUrl: 'https://arsfest.tf.fi',
     description: 'TF:s Årsfest'
   },
@@ -15,7 +15,7 @@ module.exports = {
     {
       resolve: '@vtex/gatsby-plugin-nginx',
       options: {
-        serverOptions:[['include', '/etc/nginx/api_nginx.conf']]
+        serverOptions: [['include', '/etc/nginx/api_nginx.conf']]
       }
     },
   ],

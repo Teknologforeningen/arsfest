@@ -27,7 +27,7 @@ const RegClosed = ({ message }) => {
     <>
       <AfterpartyInfo />
       <p >
-      <b>{message}</b>
+        <b>{message}</b>
       </p>
     </>
   )
@@ -110,10 +110,10 @@ const AfterpartyForm = () => {
 
   const isValid = () => {
     const valid = (
-        formData.name !== '' &&
-        formData.email !== '' &&
-        checkData.foto &&
-        checkData.gdpr
+      formData.name !== '' &&
+      formData.email !== '' &&
+      checkData.foto &&
+      checkData.gdpr
     )
     return valid;
   }
@@ -123,38 +123,38 @@ const AfterpartyForm = () => {
     return <LoadingView />
 
   if (!regStatus.regOpen)
-    return <RegClosed message="Anmälan till efterfesten öppnar 1.3 kl 12:00 på denna sida och stänger 10.3."/>
+    return <RegClosed message="Anmälan till efterfesten öppnar 1.3 kl 12:00 på denna sida och stänger 10.3." />
 
   if (regStatus.isFull)
-    return <RegClosed message="Efterfesten är fullbokad."/>
+    return <RegClosed message="Efterfesten är fullbokad." />
 
   if (regResponse.type)
-    return <RegResponse regResponse={regResponse}/>
+    return <RegResponse regResponse={regResponse} />
 
   return (
     <>
-    <AfterpartyInfo />
-    <div className="grid gap-6 mb-6 md:grid-cols-1">
-      <TextInput id="name" onChange={handleChange} value={formData.name}
-        text="* Namn (för- och efternamn)"
-      />
-      <TextInput id="email" onChange={handleChange} value={formData.email}
-        text="* Epost"
-      />
-      <Checkbox id="foto" onChange={handleCheckChange} value={formData.foto}
-        text="* Jag har läst informationen om fotografering under årsfesten. Ifall jag inte vill bli fotograferad under årsfesten följer jag de anvisningar som getts på “Fotoinfo”-fliken."
-      />
-      <Checkbox id="gdpr" onChange={handleCheckChange} value={formData.gdpr}
-        text="* Jag godkänner att mina personuppgifter används för festens förverkligande. Uppgifterna raderas senast 14 dagar efter ordnandet av festen."
-      />
-      <div className="form-btn-container">
-        <button className='px-8 py-3 text-[#011b17] bg-[#ddcdaa] rounded hover:enabled:bg-[#ceb886] disabled:opacity-40'
-          type="button" onClick={handleSend} disabled={!isValid()}
-        >
-          Skicka
-        </button>
+      <AfterpartyInfo />
+      <div className="grid gap-6 mb-6 md:grid-cols-1">
+        <TextInput id="name" onChange={handleChange} value={formData.name}
+          text="* Namn (för- och efternamn)"
+        />
+        <TextInput id="email" onChange={handleChange} value={formData.email}
+          text="* Epost"
+        />
+        <Checkbox id="foto" onChange={handleCheckChange} value={formData.foto}
+          text="* Jag har läst informationen om fotografering under årsfesten. Ifall jag inte vill bli fotograferad under årsfesten följer jag de anvisningar som getts på “Fotoinfo”-fliken."
+        />
+        <Checkbox id="gdpr" onChange={handleCheckChange} value={formData.gdpr}
+          text="* Jag godkänner att mina personuppgifter används för festens förverkligande. Uppgifterna raderas senast 14 dagar efter ordnandet av festen."
+        />
+        <div className="form-btn-container">
+          <button className='px-8 py-3 text-[#011b17] bg-[#C0C0C0] rounded hover:enabled:bg-[#ceb886] disabled:opacity-40'
+            type="button" onClick={handleSend} disabled={!isValid()}
+          >
+            Skicka
+          </button>
+        </div>
       </div>
-    </div>
     </>
   )
 }

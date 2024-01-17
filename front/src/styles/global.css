@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
 body {
-  @apply bg-gradient-to-tr from-[#010d0b] to-[#022a25];
-  color: #ddcdaa;
+  @apply bg-gradient-to-tr from-[#14182e] to-[#323d72];
+  color: #C0C0C0;
+  font-family: Georgia, 'Times New Roman', Times, serif
 }
