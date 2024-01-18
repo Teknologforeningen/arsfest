@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 const pages = [
   { href: '/', text: 'Info' },
-  { href: '/anmalan', text: 'Anmälan' },
+  { href: '/anmalan/', text: 'Anmälan' },
   // { href: '/deltagare', text: 'Deltagare' },
-  { href: '/fotoinfo', text: 'Fotoinfo' },
-  { href: '/vettoetikett', text: 'Vett och etikett' },
-  { href: '/sillis', text: 'Silliz' },
+  { href: '/fotoinfo/', text: 'Fotoinfo' },
+  { href: '/vettoetikett/', text: 'Vett och etikett' },
+  { href: '/sillis/', text: 'Silliz' },
   // { href: '/efterfest', text: 'Efterfestanmälan' },
 ]
 
