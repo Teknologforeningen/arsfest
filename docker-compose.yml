@@ -50,7 +50,7 @@ services:
     image: postgres:14-alpine
     environment:
       - POSTGRES_USER=${DB_USER:-arsfest}
-      - POSTGRES_PASSWORD=${DB_PW:-arsfest}      
+      - POSTGRES_PASSWORD=${DB_PW:-arsfest}
       - POSTGRES_DB=${DB_NAME:-arsfest}
     networks:
       - db
