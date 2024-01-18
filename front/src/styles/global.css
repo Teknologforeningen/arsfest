@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  @apply bg-gradient-to-tr from-[#14182e] to-[#323d72];
+  @apply bg-gradient-to-tr from-[#090b15] to-[#242c53];
   color: #C0C0C0;
   font-family: Georgia, 'Times New Roman', Times, serif
 }

@@ -1,5 +1,5 @@
 require('dotenv').config();
-const fastify = require('fastify')({ logger: { level: 'error'} });
+const fastify = require('fastify')({ logger: { level: 'error' } });
 const cors = require('@fastify/cors');
 const mainRoutes = require('./routes/mainEvent');
 const sillisRoutes = require('./routes/sillis');
@@ -14,9 +14,13 @@ fastify.register(afterpartyRoutes);
 
 const start = async () => {
   const PORT = process.env.PORT || 5000;
-  fastify.listen(PORT, '0.0.0.0', error => {
-    if (error) fastify.log.error(error);
-    console.log(`Server is now listening on port ${PORT}`);
+  fastify.listen({ port: PORT }, function (error) {
+    if (error) {
+      fastify.log.error(error);
+    } else {
+      console.log(`Server is now listening on port ${PORT}`);
+    }
+
   });
 };
 
