@@ -1,25 +1,33 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { createAfterpartyParticipant, getAfterpartyRegStatus } from '../services/participants';
-import LoadingView from "./LoadingView";
-import TextInput from "./TextInput";
-import Checkbox from "./Checkbox";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import {
+  createAfterpartyParticipant,
+  getAfterpartyRegStatus,
+} from '../services/participants';
+import LoadingView from './LoadingView';
+import TextInput from './TextInput';
+import Checkbox from './Checkbox';
 
 const AfterpartyInfo = () => {
   return (
     <>
       <h2 className="text-3xl mb-4">Efterfestanmälan</h2>
       <p className="mb-6">
-        <b>Obs! Efterfesten ingår i banketten, så denna anmälan är endast för de som inte deltar på banketten! </b>
+        <b>
+          Obs! Efterfesten ingår i banketten, så denna anmälan är endast för de
+          som inte deltar på banketten!{' '}
+        </b>
       </p>
       <p className="mb-3">
-        Fick du inte plats till banketten eller är du annars bara sugen på att efterfesta? Frukta inte, här kan du köpa din efterfestbiljett!
+        Fick du inte plats till banketten eller är du annars bara sugen på att
+        efterfesta? Frukta inte, här kan du köpa din efterfestbiljett!
       </p>
       <p className="mb-6">
         Efterfestens dörrar öppnar cirka 23.00. Efterfestens pris är 12€.
       </p>
       <p className="mb-6">
-        Observera att vi säljet INTE biljetter vid dörren, det gäller alltså att köpa din biljett NU!
+        Observera att vi INTE säljer biljetter vid dörren, det gäller alltså att
+        köpa din biljett NU!
       </p>
       <p className="mb-6">
         Vad? Årsfestens efterfest! <br />
@@ -27,19 +35,22 @@ const AfterpartyInfo = () => {
         Var? TF, Otsvängen 22, Esbo <br />
         Vem? Alla! <br />
         Dresscode? Cocktail <br />
-        Pris? 12€  <br />
+        Pris? 12€ <br />
         Försäljning? Måndagen 26.2 kl. 14:00 via kide.app!
-
       </p>
       <p className="mb-6">
         Länk till efterfestanmälan:
-        <a href="https://kide.app/events/674fc4d0-b2ff-4463-9ff6-d4ab1c242abc" className="ml-2 underline" target="_blank">
+        <a
+          href="https://kide.app/events/674fc4d0-b2ff-4463-9ff6-d4ab1c242abc"
+          className="ml-2 underline"
+          target="_blank"
+        >
           Kide.app
         </a>
       </p>
     </>
-  )
-}
+  );
+};
 
 // const RegClosed = ({ message }) => {
 //   return (
@@ -137,7 +148,6 @@ const AfterpartyInfo = () => {
 //     return valid;
 //   }
 
-
 //   if (actionPending)
 //     return <LoadingView />
 
@@ -178,4 +188,4 @@ const AfterpartyInfo = () => {
 //   )
 // }
 
-export default AfterpartyInfo
+export default AfterpartyInfo;
