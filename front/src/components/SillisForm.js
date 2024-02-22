@@ -18,18 +18,20 @@ const SillisInfo = () => {
       <p className="mb-3">
         Sillizen är inte bara för årsfestdeltagare utan vem som helst får komma!
       </p>
-      <p className="mb-3">
+      <p className="mb-5">
         Vad? Årsfestsilliz! <br />
         När? 17.3.2024 kl. 12-18 <br />
         Var? TF, Otsvängen 22, Esbo <br />
         Vem? Alla! <br />
-        Pris? 18€ på förhand / 20€ vid dörren
+        Dresscode? Halare + sillizhatt <br />
+        Pris? 18€ på förhand / 20€ vid dörren <br />
+        Försäljning? Måndagen 26.2 kl. 14:00 via kide.app!
       </p>
       <p className="mb-6">
-        Anmälan är bindande och ifall du inte kan komma får du själv hitta en ersättare.
-      </p>
-      <p className="mb-3 underline">
-        Länk till sillizanmälan publiceras inom kort.
+        Länk till sillizanmälan:
+        <a href="https://kide.app/events/674fc4d0-b2ff-4463-9ff6-d4ab1c242abc" className="ml-2 underline" target="_blank">
+          Kide.app
+        </a>
       </p>
     </>
   )

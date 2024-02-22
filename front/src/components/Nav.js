@@ -7,7 +7,7 @@ const pages = [
   { href: '/fotoinfo/', text: 'Fotoinfo' },
   { href: '/vettoetikett/', text: 'Vett och etikett' },
   { href: '/sillis/', text: 'Silliz' },
-  // { href: '/efterfest', text: 'Efterfestanmälan' },
+  { href: '/efterfest', text: 'Efterfestanmälan' },
 ]
 
 const Nav = ({ activePage }) => {
